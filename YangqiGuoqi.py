@@ -505,7 +505,7 @@ def dealURLofTieLuWuZi():
                 try:
                     r = requests.get(requestURL, headers=headers)
                     r.encoding = r.apparent_encoding
-                    basesoup = BeautifulSoup(r.text, 'lxml')
+                    basesoup = BeautifulSoup(r.text, 'html5lib')
                     basesoup.prettify()
                     titleNode = basesoup.find(attrs={'class': 'content_newslist'})
                     titleList = titleNode.find_all('li')
@@ -601,7 +601,7 @@ def dealURLofTieLuWuZi():
                     try:
                         r = requests.get(requestURL, headers=headers)
                         r.encoding = r.apparent_encoding
-                        basesoup = BeautifulSoup(r.text, 'lxml')
+                        basesoup = BeautifulSoup(r.text, 'html5lib')
                         basesoup.prettify()
                         titleNode = basesoup.find(attrs={'class': 'content_newslist'})
                         titleList = titleNode.find_all('li')
@@ -615,6 +615,135 @@ def dealURLofTieLuWuZi():
                         flag = 0
                         print('重新请求网页中...')
                         sleep(10 + 20 * flag)
+    print("finish")
+    return;
+
+#5.中国西电集团有限公司
+def delURLofXiDian():
+    loggerXiDian = logging.getLogger('中国西电集团有限公司--爬取数据')
+    loggerXiDian.setLevel(logging.DEBUG)
+    # 连接mongoDB
+    db = MongoClient(host=config_sample.mongodb_host, port=config_sample.mongodb_port,
+                     username=config_sample.mongodb_username,
+                     password=config_sample.mongodb_password)[config_sample.mongodb_db_name]
+    collection = db.result_data
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    }
+
+    baseUrl = 'http://www.xd.com.cn/structure/ssjg?currentPageNum='
+    for key in config_sample.keywords_list:
+        pageNum = 1
+        flag = 0
+        print('开始爬取中国西电集团有限公司')
+        print('关键词：' + key)
+        requestURL = baseUrl+str(pageNum)+'&keyword='+key+'&range=site&pagesize=15&siteid=xd&channelid=root'
+        while flag < 3:
+            try:
+                r = requests.get(requestURL, headers=headers)
+                r.encoding = r.apparent_encoding
+                basesoup = BeautifulSoup(r.text, 'html5lib')
+                basesoup.prettify()
+                titleList = basesoup.find_all('result')
+                flag = 3
+            except (ReadTimeout, ConnectionError) as e:
+                loggerXiDian.error(e)
+                flag += 1
+                if flag == 3:
+                    loggerXiDian.info('Sleeping...')
+                    sleep(60 * 10)
+                flag = 0
+                print('重新请求网页中...')
+                sleep(10 + 20 * flag)
+        while titleList:
+            for table in titleList:
+                articleURL = table.find('url').text
+                flag = 0
+                while flag < 3:
+                    try:
+                        article = requests.get(articleURL, headers=headers)
+                        flag = 3
+                        article.encoding = article.apparent_encoding
+                        articleSoup = BeautifulSoup(article.text, 'lxml')
+                        articleSoup.prettify()
+                        # 保存html页面源码
+                        htmlSource = article.text
+
+                        # html的URL地址
+                        htmlURL = article.url
+
+                        # 保存文章标题信息
+                        articleTitle = table.find('title').text
+
+                        # 保存文章发布时间
+                        publishTime = re.search('(\d+-\d+-\d+)', table.find('time').text)[0].replace('-', '')
+
+                        # 保存文章位置
+                        articleLocation = '资讯园地'
+                        if articleSoup.find(attrs={'valign': 'middle', 'class': 'CicroJK23PR_2437_5453_xd_25_Local_page'}):
+                            articleLocation += '>' + articleSoup.find_all(attrs={'valign': 'middle', 'class': 'CicroJK23PR_2437_5453_xd_25_Local_page'})[1].text
+
+                        # 保存文章正文
+                        if articleSoup.find(attrs={'id': 'content'}):
+                            articleText = articleSoup.find(attrs={'id': 'content'}).text
+
+                        # 判断标题或正文是否含有关键词
+                        matched_keywords_list = []
+                        for each_keyword in config_sample.keywords_list:
+                            if each_keyword in articleTitle or each_keyword in articleText:
+                                matched_keywords_list.append(each_keyword)
+                        if matched_keywords_list.__len__() > 0:
+                            if collection.find({'url': htmlURL}).count() == 0:
+                                item = {
+                                    'url': htmlURL,
+                                    'title': articleTitle,
+                                    'date': publishTime,
+                                    'site': '央企及地方重点国企官网-央企-中国西电集团有限公司',
+                                    'keyword': matched_keywords_list,
+                                    'tag_text': articleLocation,
+                                    'content': articleText,
+                                    'html': htmlSource
+                                }
+                                print('#insert_new_article: ' + articleTitle)
+                                result = collection.insert_one(item)
+                                print(result.inserted_id)
+                            else:
+                                print('#article already exits:' + articleTitle)
+                        else:
+                            print('#no keyword matched: ' + articleTitle)
+
+                    except (ReadTimeout, ConnectionError) as e:
+                        loggerXiDian.error(e)
+                        flag += 1
+                        if flag == 3:
+                            print('重新请求失败')
+                            loggerXiDian.info('Sleeping...')
+                            sleep(60 * 10)
+                            flag = 0
+                        print('重新请求网页中...')
+                        sleep(10 + 20 * flag)
+
+            print('pageNum: ' + str(pageNum))
+            pageNum += 1
+            flag = 0
+            requestURL = baseUrl + str(pageNum) + '&keyword=' + key + '&range=site&pagesize=15&siteid=xd&channelid=root'
+            while flag < 3:
+                try:
+                    r = requests.get(requestURL, headers=headers)
+                    r.encoding = r.apparent_encoding
+                    basesoup = BeautifulSoup(r.text, 'html5lib')
+                    basesoup.prettify()
+                    titleList = basesoup.find_all('result')
+                    flag = 3
+                except (ReadTimeout, ConnectionError) as e:
+                    loggerXiDian.error(e)
+                    flag += 1
+                    if flag == 3:
+                        loggerXiDian.info('Sleeping...')
+                        sleep(60 * 10)
+                    flag = 0
+                    print('重新请求网页中...')
+                    sleep(10 + 20 * flag)
     print("finish")
     return;
 
@@ -643,4 +772,7 @@ if __name__ == "__main__":
     #dealURLofGuoXinKongGu()
 
     #4.中国铁路物资集团有限公司
-    dealURLofTieLuWuZi()
+    #dealURLofTieLuWuZi()
+
+    #5.中国西电集团有限公司
+    #delURLofXiDian()
