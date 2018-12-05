@@ -1,4 +1,4 @@
-import urllib
+import urllib3
 import requests
 import re
 import os
@@ -9,6 +9,7 @@ from utility import utility_convert
 
 #引入代理
 from getProxy import getOneProxy
+import json
 
 # 处理pdf文档
 from io import StringIO
@@ -148,7 +149,7 @@ def delUrlofGuoNengTou(baseUrl, key):
                             result = collection.insert_one(item)
                             print(result.inserted_id)
                         else:
-                            print('#article already exits:' + articleTitle)
+                            print('#article already exists:' + articleTitle)
                     else:
                         print('#no keyword matched: ' + articleTitle)
 
@@ -290,7 +291,7 @@ def dealURLofBingQi(baseUrl, key):
                             result = collection.insert_one(item)
                             print(result.inserted_id)
                         else:
-                            print('#article already exits:' + articleTitle)
+                            print('#article already exists:' + articleTitle)
                     else:
                         print('#no keyword matched: ' + articleTitle)
 
@@ -372,7 +373,7 @@ def dealURLofGuoXinKongGu():
                 if flag == 3:
                     loggerGuoXin.info('Sleeping...')
                     sleep(60 * 10)
-                flag = 0
+                    flag = 0
                 print('重新请求网页中...')
                 sleep(10 + 20 * flag)
         while titleList:
@@ -431,7 +432,7 @@ def dealURLofGuoXinKongGu():
                                 result = collection.insert_one(item)
                                 print(result.inserted_id)
                             else:
-                                print('#article already exits:' + articleTitle)
+                                print('#article already exists:' + articleTitle)
                         else:
                             print('#no keyword matched: ' + articleTitle)
 
@@ -472,7 +473,7 @@ def dealURLofGuoXinKongGu():
                     if flag == 3:
                         loggerGuoXin.info('Sleeping...')
                         sleep(60 * 10)
-                    flag = 0
+                        flag = 0
                     print('重新请求网页中...')
                     sleep(10 + 20 * flag)
     print("finish")
@@ -490,17 +491,118 @@ def dealURLofTieLuWuZi():
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
     }
 
-    baseUrlList = ['https://www.crmsc.com.cn/mark.asp?bigID=10&Page=', 'https://www.crmsc.com.cn/mark.asp?bigID=30&Page=',
-                   'https://www.crmsc.com.cn/mark.asp?bigID=40&Page=', 'https://www.crmsc.com.cn/mark.asp?bigID=50&Page=',
+    baseUrlList = ['https://www.crmsc.com.cn/mark.asp?bigID=50&Page=', 'https://www.crmsc.com.cn/mark.asp?bigID=40&Page=',
+                   'https://www.crmsc.com.cn/mark.asp?bigID=10&Page=', 'https://www.crmsc.com.cn/mark.asp?bigID=30&Page=',
                    'https://www.crmsc.com.cn/mark.asp?bigID=60&Page=', 'https://www.crmsc.com.cn/mark.asp?bigID=100&Page=']
 
     for baseUrl in baseUrlList:
         print('开始爬取中国铁路物资集团有限公司:' + baseUrl)
-        for key in config_sample.keywords_list:
-            pageNum = 1
+        pageNum = 1
+        flag = 0
+        requestURL = baseUrl + str(pageNum)
+        while flag < 3:
+            try:
+                r = requests.get(requestURL, headers=headers)
+                r.encoding = r.apparent_encoding
+                basesoup = BeautifulSoup(r.text, 'html5lib')
+                basesoup.prettify()
+                titleNode = basesoup.find(attrs={'class': 'content_newslist'})
+                titleList = titleNode.find_all('li')
+                flag = 3
+                #记录总页码数
+                pagenode = basesoup.find('td', attrs={'align':'right'}).text
+                totalPage = int(re.search('(\d+)', pagenode)[0])
+            except (ReadTimeout, ConnectionError) as e:
+                loggerTieLu.error(e)
+                flag += 1
+                if flag == 3:
+                    loggerTieLu.info('Sleeping...')
+                    sleep(60 * 10)
+                    flag = 0
+                print('重新请求网页中...')
+                sleep(10 + 20 * flag)
+        while titleList:
+            for table in titleList:
+                a = table.find('a')
+                articleURL = 'https://www.crmsc.com.cn/'+a['href']
+                flag = 0
+                while flag < 3:
+                    try:
+                        article = requests.get(articleURL, headers=headers)
+                        flag = 3
+                        article.encoding = article.apparent_encoding
+                        articleSoup = BeautifulSoup(article.text, 'html5lib')
+                        articleSoup.prettify()
+                        # 保存html页面源码
+                        htmlSource = article.text
+
+                        # html的URL地址
+                        htmlURL = article.url
+
+                        # 保存文章标题信息
+                        articleTitle = a.text
+
+                        # 保存文章发布时间
+                        publishTime = re.search('(\d+-\d+-\d+)', table.find('span').text)[0].replace('-', '')
+
+                        # 保存文章位置
+                        articleLocation = ''
+                        if articleSoup.find(attrs={'class': 'content_right_title'}):
+                            articleLocList = articleSoup.find(attrs={'class': 'content_right_title'}).find_all('a')
+                            for articleLocNode in articleLocList:
+                                articleLocation += '>' + articleLocNode.text
+
+                        # 保存文章正文
+                        articleText = ''
+                        if articleSoup.find(attrs={'class': 'content_info'}):
+                            artileTextList = articleSoup.find(attrs={'class': 'content_info'}).find_all('p')
+                        for articleTextNode in artileTextList:
+                            articleText += articleTextNode.text
+
+                        # 判断标题或正文是否含有关键词
+                        matched_keywords_list = []
+                        for each_keyword in config_sample.keywords_list:
+                            if each_keyword in articleTitle or each_keyword in articleText:
+                                matched_keywords_list.append(each_keyword)
+                        if matched_keywords_list.__len__() > 0:
+                            if collection.find({'url': htmlURL}).count() == 0:
+                                item = {
+                                    'url': htmlURL,
+                                    'title': articleTitle,
+                                    'date': publishTime,
+                                    'site': '央企及地方重点国企官网-央企-中国铁路物资集团有限公司',
+                                    'keyword': matched_keywords_list,
+                                    'tag_text': articleLocation,
+                                    'content': articleText,
+                                    'html': htmlSource
+                                }
+                                print('#insert_new_article: ' + articleTitle)
+                                result = collection.insert_one(item)
+                                print(result.inserted_id)
+                            else:
+                                print('#article already exists:' + articleTitle)
+                        else:
+                            print('#no keyword matched: ' + articleTitle)
+
+                    except (ReadTimeout, ConnectionError) as e:
+                        loggerTieLu.error(e)
+                        flag += 1
+                        if flag == 3:
+                            print('重新请求失败')
+                            loggerTieLu.info('Sleeping...')
+                            sleep(60 * 10)
+                            flag = 0
+                        print('重新请求网页中...')
+                        sleep(10 + 20 * flag)
+
+            print('pageNum: ' + str(pageNum))
+            pageNum += 1
+            #如果超出最大页码数则爬取下一网站：
+            if pageNum > totalPage:
+                break
+
             flag = 0
             requestURL = baseUrl + str(pageNum)
-            print('关键词：' + key)
             while flag < 3:
                 try:
                     r = requests.get(requestURL, headers=headers)
@@ -516,105 +618,9 @@ def dealURLofTieLuWuZi():
                     if flag == 3:
                         loggerTieLu.info('Sleeping...')
                         sleep(60 * 10)
-                    flag = 0
+                        flag = 0
                     print('重新请求网页中...')
                     sleep(10 + 20 * flag)
-            while titleList:
-                for table in titleList:
-                    a = table.find('a')
-                    articleURL = 'https://www.crmsc.com.cn/'+a['href']
-                    flag = 0
-                    while flag < 3:
-                        try:
-                            article = requests.get(articleURL, headers=headers)
-                            flag = 3
-                            article.encoding = article.apparent_encoding
-                            articleSoup = BeautifulSoup(article.text, 'lxml')
-                            articleSoup.prettify()
-                            # 保存html页面源码
-                            htmlSource = article.text
-
-                            # html的URL地址
-                            htmlURL = article.url
-
-                            # 保存文章标题信息
-                            articleTitle = a.text
-
-                            # 保存文章发布时间
-                            publishTime = re.search('(\d+-\d+-\d+)', table.find('span').text)[0].replace('-', '')
-
-                            # 保存文章位置
-                            articleLocation = ''
-                            if articleSoup.find(attrs={'class': 'content_right_title'}):
-                                articleLocList = articleSoup.find(attrs={'class': 'content_right_title'}).find_all('a')
-                                for articleLocNode in articleLocList:
-                                    articleLocation += '>' + articleLocNode.text
-
-                            # 保存文章正文
-                            articleText = ''
-                            if articleSoup.find(attrs={'class': 'content_info'}):
-                                artileTextList= articleSoup.find(attrs={'class': 'content_info'}).find_all('p')
-                            for articleTextNode in artileTextList:
-                                articleText += articleTextNode.text
-
-                            # 判断标题或正文是否含有关键词
-                            matched_keywords_list = []
-                            for each_keyword in config_sample.keywords_list:
-                                if each_keyword in articleTitle or each_keyword in articleText:
-                                    matched_keywords_list.append(each_keyword)
-                            if matched_keywords_list.__len__() > 0:
-                                if collection.find({'url': htmlURL}).count() == 0:
-                                    item = {
-                                        'url': htmlURL,
-                                        'title': articleTitle,
-                                        'date': publishTime,
-                                        'site': '央企及地方重点国企官网-央企-中国铁路物资集团有限公司',
-                                        'keyword': matched_keywords_list,
-                                        'tag_text': articleLocation,
-                                        'content': articleText,
-                                        'html': htmlSource
-                                    }
-                                    print('#insert_new_article: ' + articleTitle)
-                                    result = collection.insert_one(item)
-                                    print(result.inserted_id)
-                                else:
-                                    print('#article already exits:' + articleTitle)
-                            else:
-                                print('#no keyword matched: ' + articleTitle)
-
-                        except (ReadTimeout, ConnectionError) as e:
-                            loggerTieLu.error(e)
-                            flag += 1
-                            if flag == 3:
-                                print('重新请求失败')
-                                loggerTieLu.info('Sleeping...')
-                                sleep(60 * 10)
-                                flag = 0
-                            print('重新请求网页中...')
-                            sleep(10 + 20 * flag)
-
-                print('pageNum: ' + str(pageNum))
-                pageNum += 1
-                flag = 0
-                requestURL = baseUrl + str(pageNum)
-                while flag < 3:
-                    try:
-                        r = requests.get(requestURL, headers=headers)
-                        r.encoding = r.apparent_encoding
-                        basesoup = BeautifulSoup(r.text, 'html5lib')
-                        basesoup.prettify()
-                        titleNode = basesoup.find(attrs={'class': 'content_newslist'})
-                        titleList = titleNode.find_all('li')
-                        flag = 3
-                    except (ReadTimeout, ConnectionError) as e:
-                        loggerTieLu.error(e)
-                        flag += 1
-                        if flag == 3:
-                            loggerTieLu.info('Sleeping...')
-                            sleep(60 * 10)
-                        flag = 0
-                        print('重新请求网页中...')
-                        sleep(10 + 20 * flag)
     print("finish")
     return;
 
@@ -652,7 +658,7 @@ def delURLofXiDian():
                 if flag == 3:
                     loggerXiDian.info('Sleeping...')
                     sleep(60 * 10)
-                flag = 0
+                    flag = 0
                 print('重新请求网页中...')
                 sleep(10 + 20 * flag)
         while titleList:
@@ -708,7 +714,7 @@ def delURLofXiDian():
                                 result = collection.insert_one(item)
                                 print(result.inserted_id)
                             else:
-                                print('#article already exits:' + articleTitle)
+                                print('#article already exists:' + articleTitle)
                         else:
                             print('#no keyword matched: ' + articleTitle)
 
@@ -741,7 +747,449 @@ def delURLofXiDian():
                     if flag == 3:
                         loggerXiDian.info('Sleeping...')
                         sleep(60 * 10)
+                        flag = 0
+                    print('重新请求网页中...')
+                    sleep(10 + 20 * flag)
+    print("finish")
+    return;
+
+#6.南光（集团）有限公司[中国南光集团有限公司]
+def delURLofNanGuang():
+    loggerNanGuang = logging.getLogger('中国南光集团有限公司--爬取数据')
+    loggerNanGuang.setLevel(logging.DEBUG)
+    # 连接mongoDB
+    db = MongoClient(host=config_sample.mongodb_host, port=config_sample.mongodb_port,
+                     username=config_sample.mongodb_username,
+                     password=config_sample.mongodb_password)[config_sample.mongodb_db_name]
+    collection = db.result_data
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+        'Referer': 'http://www.namkwong.com.mo/e/search/result/?searchid=1362'
+    }
+    #编写搜索关键词字典（国有企业改制搜不到）
+    keyDict = {'国企改革': '1362', '国企改制': '2190', '国企混改': '2189', '国有企业改革': '2191', '国有企业改制': ''}
+    #这个网站构造请求时，页码是从0开始计算的（后面pageNum在请求网页时可减1）
+    baseUrl = 'http://www.namkwong.com.mo/e/search/result/index.php?page='
+    for key in config_sample.keywords_list:
+        #'国有企业改制'关键词直接跳过本轮循环
+        if key == '国有企业改制':
+            continue
+        pageNum = 1
+        flag = 0
+        print('开始爬取中国南光集团有限公司')
+        print('关键词：' + key)
+        requestURL = baseUrl+str(pageNum-1)+'&start=0&searchid='+keyDict[key]
+        #记录当前关键词已经爬取的结果数
+        numResults = 0
+        while flag < 3:
+            try:
+                r = requests.get(requestURL, headers=headers, proxies=getOneProxy())
+                r.encoding = r.apparent_encoding
+                basesoup = BeautifulSoup(r.text, 'html5lib')
+                basesoup.prettify()
+                # 记录当前关键词总的结果数
+                totalResults = int(basesoup.find('strong').text)
+                titleList = basesoup.find_all('h2', attrs={'class': 'r'})
+                flag = 3
+            except (ReadTimeout, ConnectionError) as e:
+                loggerNanGuang.error(e)
+                flag += 1
+                if flag == 3:
+                    loggerNanGuang.info('Sleeping...')
+                    sleep(60 * 10)
                     flag = 0
+                print('重新请求网页中...')
+                sleep(10 + 20 * flag)
+        while titleList:
+            for table in titleList:
+                numResults += 1
+                a = table.find('a')
+                articleURL = 'http://www.namkwong.com.mo'+a['href']
+                flag = 0
+                while flag < 3:
+                    try:
+                        article = requests.get(articleURL, headers=headers, proxies=getOneProxy())
+                        print(articleURL)
+                        flag = 3
+                        article.encoding = article.apparent_encoding
+                        articleSoup = BeautifulSoup(article.text, 'html5lib')
+                        articleSoup.prettify()
+                        # 保存html页面源码
+                        htmlSource = article.text
+
+                        # html的URL地址
+                        htmlURL = article.url
+
+                        # 保存文章标题信息
+                        articleTitle = ''
+                        if articleSoup.find('h1'):
+                            articleTitle = articleSoup.find('h1').text
+                        elif articleSoup.find('title'):
+                            articleTitle = articleSoup.find('title').text
+
+                        # 保存文章发布时间
+                        publishTime = ''
+                        if articleSoup.find(attrs={'class': 'date_source'}):
+                            publishTime = re.search('(\d+-\d+-\d+)', articleSoup.find(attrs={'class': 'date_source'}).text)[0].replace('-', '')
+
+                        # 保存文章位置
+                        articleLocation = ''
+                        if articleSoup.find('div', attrs={'class': 'news_nav'}):
+                            articleLocList = articleSoup.find('div', attrs={'class': 'news_nav'}).find_all('a')
+                            for articleLocNode in articleLocList:
+                                articleLocation += '>' + articleLocNode.text
+
+                        # 保存文章正文
+                        if articleSoup.find('div', attrs={'class': 'news-text'}):
+                            articleText = articleSoup.find('div', attrs={'class': 'news-text'}).text
+
+                        # 判断标题或正文是否含有关键词
+                        matched_keywords_list = []
+                        for each_keyword in config_sample.keywords_list:
+                            if each_keyword in articleTitle or each_keyword in articleText:
+                                matched_keywords_list.append(each_keyword)
+                        if matched_keywords_list.__len__() > 0:
+                            if collection.find({'url': htmlURL}).count() == 0:
+                                item = {
+                                    'url': htmlURL,
+                                    'title': articleTitle,
+                                    'date': publishTime,
+                                    'site': '央企及地方重点国企官网-央企-中国南光集团有限公司',
+                                    'keyword': matched_keywords_list,
+                                    'tag_text': articleLocation,
+                                    'content': articleText,
+                                    'html': htmlSource
+                                }
+                                print('#insert_new_article: ' + articleTitle)
+                                result = collection.insert_one(item)
+                                print(result.inserted_id)
+                            else:
+                                print('#article already exists:' + articleTitle)
+                        else:
+                            print('#no keyword matched: ' + articleTitle)
+
+                    except (ReadTimeout, ConnectionError) as e:
+                        loggerNanGuang.error(e)
+                        flag += 1
+                        if flag == 3:
+                            print('重新请求失败')
+                            loggerNanGuang.info('Sleeping...')
+                            sleep(60 * 10)
+                            flag = 0
+                        print('重新请求网页中...')
+                        sleep(10 + 20 * flag)
+
+            print('pageNum: ' + str(pageNum))
+            pageNum += 1
+            flag = 0
+            requestURL = baseUrl + str(pageNum - 1) + '&start=0&searchid=' + keyDict[key]
+            #如果这个关键词搜索的结果已经达到最大，跳出循环检索下一个关键词
+            if numResults >= totalResults:
+                break
+
+            while flag < 3:
+                try:
+                    r = requests.get(requestURL, headers=headers, proxies=getOneProxy())
+                    r.encoding = r.apparent_encoding
+                    basesoup = BeautifulSoup(r.text, 'html5lib')
+                    basesoup.prettify()
+                    titleList = basesoup.find_all('h2', attrs={'class': 'r'})
+                    flag = 3
+                except (ReadTimeout, ConnectionError) as e:
+                    loggerNanGuang.error(e)
+                    flag += 1
+                    if flag == 3:
+                        loggerNanGuang.info('Sleeping...')
+                        sleep(60 * 10)
+                        flag = 0
+                    print('重新请求网页中...')
+                    sleep(10 + 20 * flag)
+    print("finish")
+    return;
+
+
+#7.华侨城集团有限公司
+def delURLofHuaQiaoCheng():
+    loggerHuaQiaoCheng = logging.getLogger('华侨城集团有限公司--爬取数据')
+    loggerHuaQiaoCheng.setLevel(logging.DEBUG)
+    # 连接mongoDB
+    db = MongoClient(host=config_sample.mongodb_host, port=config_sample.mongodb_port,
+                     username=config_sample.mongodb_username,
+                     password=config_sample.mongodb_password)[config_sample.mongodb_db_name]
+    collection = db.result_data
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3497.100 Safari/537.36'
+    }
+
+    baseUrl = 'http://www.chinaoct.com/hqc/xwzx/182ca858-'
+    pageNum = 1
+    flag = 0
+    print('开始爬取华侨城集团有限公司')
+    requestURL = baseUrl + str(pageNum) + '.html'
+    while flag < 3:
+        try:
+            r = requests.get(requestURL, headers=headers)
+            r.encoding = r.apparent_encoding
+            basesoup = BeautifulSoup(r.text, 'lxml')
+            basesoup.prettify()
+            titleNode = basesoup.find(attrs={'class': 'gb_list_ul'})
+            titleList = titleNode.find_all('li')
+            flag = 3
+        except (ReadTimeout, ConnectionError) as e:
+            loggerHuaQiaoCheng.error(e)
+            flag += 1
+            if flag == 3:
+                loggerHuaQiaoCheng.info('Sleeping...')
+                sleep(60 * 10)
+                flag = 0
+            print('重新请求网页中...')
+            sleep(10 + 20 * flag)
+    while titleList:
+        for table in titleList:
+            if table.find(attrs={'class': 'gb_one_text'}):
+                a = table.find('a')
+            else: a = table.find(attrs={'class': 'gb_newlist_title'}).find('a')
+            articleURL = 'http://www.chinaoct.com'+a['href']
+            flag = 0
+            while flag < 3:
+                try:
+                    article = requests.get(articleURL, headers=headers)
+                    flag = 3
+                    article.encoding = article.apparent_encoding
+                    articleSoup = BeautifulSoup(article.text, 'lxml')
+                    articleSoup.prettify()
+
+                    # 保存html页面源码
+                    htmlSource = article.text
+
+                    # html的URL地址
+                    htmlURL = article.url
+
+                    # 保存文章标题信息
+                    articleTitle = ''
+                    if articleSoup.find('h1'):
+                        articleTitle = articleSoup.find('h1').text
+                    elif articleSoup.find('title'):
+                        articleTitle = articleSoup.find('title').text
+
+                    # 保存文章发布时间
+                    publishTime = ''
+                    if articleSoup.find(attrs={'class': 'detail_body'}):
+                        publishTime = re.search('(\d+年\d+月\d+日)', articleSoup.find(attrs={'class': 'detail_body'}).text)[0].replace('年','').replace('月','').replace('日','')
+                    # 保存文章位置
+                    articleLocation = ''
+                    if articleSoup.find('div', attrs={'class': 'mbx'}):
+                        articleLocList = articleSoup.find('div', attrs={'class': 'mbx'}).find('span').find_all('a')
+                    for articleLocNode in articleLocList:
+                        articleLocation += '>' + articleLocNode.text
+
+                    # 保存文章正文
+                    articleText = ''
+                    if articleSoup.find('div', attrs={'class': 'detail_center'}):
+                        articleTextList = articleSoup.find('div', attrs={'class': 'detail_center'}).find_all('p')
+                    for articleTextNode in articleTextList:
+                        articleText += articleTextNode.text
+
+                    # 判断标题或正文是否含有关键词
+                    matched_keywords_list = []
+                    for each_keyword in config_sample.keywords_list:
+                        if each_keyword in articleTitle or each_keyword in articleText:
+                            matched_keywords_list.append(each_keyword)
+                    if matched_keywords_list.__len__() > 0:
+                        if collection.find({'url': htmlURL}).count() == 0:
+                            item = {
+                                'url': htmlURL,
+                                'title': articleTitle,
+                                'date': publishTime,
+                                'site': '央企及地方重点国企官网-央企-华侨城集团有限公司',
+                                'keyword': matched_keywords_list,
+                                'tag_text': articleLocation,
+                                'content': articleText,
+                                'html': htmlSource
+                            }
+                            print('#insert_new_article: ' + articleTitle)
+                            result = collection.insert_one(item)
+                            print(result.inserted_id)
+                        else:
+                            print('#article already exists:' + articleTitle)
+                    else:
+                        print('#no keyword matched: ' + articleTitle)
+
+                except (ReadTimeout, ConnectionError) as e:
+                    loggerHuaQiaoCheng.error(e)
+                    flag += 1
+                    if flag == 3:
+                        print('重新请求失败')
+                        loggerHuaQiaoCheng.info('Sleeping...')
+                        sleep(60 * 10)
+                        flag = 0
+                    print('重新请求网页中...')
+                    sleep(10 + 20 * flag)
+
+        print('pageNum: ' + str(pageNum))
+        pageNum += 1
+        flag = 0
+        requestURL = baseUrl + str(pageNum) + '.html'
+        while flag < 3:
+            try:
+                r = requests.get(requestURL, headers=headers)
+                r.encoding = r.apparent_encoding
+                basesoup = BeautifulSoup(r.text, 'lxml')
+                basesoup.prettify()
+                titleNode = basesoup.find(attrs={'class': 'gb_list_ul'})
+                titleList = titleNode.find_all('li')
+                flag = 3
+            except (ReadTimeout, ConnectionError) as e:
+                loggerHuaQiaoCheng.error(e)
+                flag += 1
+                if flag == 3:
+                    loggerHuaQiaoCheng.info('Sleeping...')
+                    sleep(60 * 10)
+                    flag = 0
+                print('重新请求网页中...')
+                sleep(10 + 20 * flag)
+    print("finish")
+    return;
+
+#8.武汉邮电科学研究院有限公司
+def delURLofWuHanYouDian():
+    loggerWHYD = logging.getLogger('武汉邮电科学研究院有限公司--爬取数据')
+    loggerWHYD.setLevel(logging.DEBUG)
+    # 连接mongoDB
+    db = MongoClient(host=config_sample.mongodb_host, port=config_sample.mongodb_port,
+                     username=config_sample.mongodb_username,
+                     password=config_sample.mongodb_password)[config_sample.mongodb_db_name]
+    collection = db.result_data
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    }
+
+    requestURL = 'http://www.wri.com.cn/cn/tools/submit_self_ajax.ashx?action=search_list'
+    for key in config_sample.keywords_list:
+        pageNum = 1
+        flag = 0
+        print('开始爬取武汉邮电科学研究院有限公司')
+        print('关键词：' + key)
+        # 构造POST方法请求数据：
+        data = {'key': key, 'pageindex': str(pageNum)}
+        #记录已爬取的结果数
+        count = 0
+        while flag < 3:
+            try:
+                r = requests.post(requestURL, headers=headers, data=data, proxies=getOneProxy())
+                r.encoding = 'utf-8'
+                titleNode = json.loads(r.text)
+                titleList = titleNode['List']
+                #统计最大结果数
+                totalResults = titleNode['Count']
+                flag = 3
+            except (ReadTimeout, ConnectionError) as e:
+                loggerWHYD.error(e)
+                flag += 1
+                if flag == 3:
+                    loggerWHYD.info('Sleeping...')
+                    sleep(60 * 10)
+                    flag = 0
+                print('重新请求网页中...')
+                sleep(10 + 20 * flag)
+        while titleList:
+            for table in titleList:
+                articleURL = 'http://www.wri.com.cn'+table['link_url']
+                flag = 0
+                count += 1
+                while flag < 3:
+                    try:
+                        article = requests.get(articleURL, headers=headers, proxies=getOneProxy())
+                        flag = 3
+                        article.encoding = article.apparent_encoding
+                        articleSoup = BeautifulSoup(article.text, 'lxml')
+                        articleSoup.prettify()
+                        # 保存html页面源码
+                        htmlSource = article.text
+
+                        # html的URL地址
+                        htmlURL = article.url
+
+                        # 保存文章标题信息
+                        articleTitle = table['title']
+
+                        # 保存文章发布时间
+                        publishTime = ''
+                        if articleSoup.find(attrs={'class': 'detailSetTime'}):
+                            publishTime = re.search('(\d+/\d+/\d+)', articleSoup.find(attrs={'class': 'detailSetTime'}).text)[0].replace('/', '')
+
+                        # 保存文章位置
+                        articleLocation = ''
+                        if articleSoup.find(attrs={'class': 'subnav'}):
+                            articleLocList = articleSoup.find(attrs={'class': 'subnav'}).find_all('a')
+                            for articleLocNode in articleLocList:
+                                articleLocation += '>' + articleLocNode.text
+
+                        # 保存文章正文
+                        articleText = ''
+                        if articleSoup.find(attrs={'class': 'detailParagraphBox'}):
+                            articleTextList =  articleSoup.find(attrs={'class': 'detailParagraphBox'}).find_all('p')
+                            for articleTextNode in articleTextList:
+                                articleText += articleTextNode.text
+
+                        # 判断标题或正文是否含有关键词
+                        matched_keywords_list = []
+                        for each_keyword in config_sample.keywords_list:
+                            if each_keyword in articleTitle or each_keyword in articleText:
+                                matched_keywords_list.append(each_keyword)
+                        if matched_keywords_list.__len__() > 0:
+                            if collection.find({'url': htmlURL}).count() == 0:
+                                item = {
+                                    'url': htmlURL,
+                                    'title': articleTitle,
+                                    'date': publishTime,
+                                    'site': '央企及地方重点国企官网-央企-武汉邮电科学研究院有限公司',
+                                    'keyword': matched_keywords_list,
+                                    'tag_text': articleLocation,
+                                    'content': articleText,
+                                    'html': htmlSource
+                                }
+                                print('#insert_new_article: ' + articleTitle)
+                                result = collection.insert_one(item)
+                                print(result.inserted_id)
+                            else:
+                                print('#article already exists:' + articleTitle)
+                        else:
+                            print('#no keyword matched: ' + articleTitle)
+
+                    except (ReadTimeout, ConnectionError) as e:
+                        loggerWHYD.error(e)
+                        flag += 1
+                        if flag == 3:
+                            print('重新请求失败')
+                            loggerWHYD.info('Sleeping...')
+                            sleep(60 * 10)
+                            flag = 0
+                        print('重新请求网页中...')
+                        sleep(10 + 20 * flag)
+
+            #如果爬取的文章已经超过最大结果数，则退出循环
+            if count >= totalResults:
+                break
+
+            print('pageNum: ' + str(pageNum))
+            pageNum += 1
+            flag = 0
+            data = {'key': key, 'pageindex': str(pageNum)}
+            while flag < 3:
+                try:
+                    r = requests.post(requestURL, headers=headers, data=data, proxies=getOneProxy())
+                    r.encoding = 'utf-8'
+                    titleNode = json.loads(r.text)
+                    titleList = titleNode['List']
+                    flag = 3
+                except (ReadTimeout, ConnectionError) as e:
+                    loggerWHYD.error(e)
+                    flag += 1
+                    if flag == 3:
+                        loggerWHYD.info('Sleeping...')
+                        sleep(60 * 10)
+                        flag = 0
                     print('重新请求网页中...')
                     sleep(10 + 20 * flag)
     print("finish")
@@ -776,3 +1224,12 @@ if __name__ == "__main__":
 
     #5.中国西电集团有限公司
     #delURLofXiDian()
+
+    #6.南光（集团）有限公司[中国南光集团有限公司]
+    #delURLofNanGuang()
+
+    #7.华侨城集团有限公司
+    #delURLofHuaQiaoCheng()
+
+    #8.武汉邮电科学研究院有限公司
+    delURLofWuHanYouDian()
