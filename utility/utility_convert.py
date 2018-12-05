@@ -21,7 +21,7 @@ from bs4 import BeautifulSoup as bs
 from urllib.parse import unquote
 from PIL import Image, ImageSequence
 from utility.utility_ocr import ocr
-import config_sample
+import config
 
 PARENT_FOLDER = 'announce'
 
@@ -206,7 +206,7 @@ def convert_doc_to_txt(download_path):
     if not os.path.exists(html_path):
         # convert to html
         try:
-            subprocess.call([config_sample.soffice_path, \
+            subprocess.call([config.soffice_path, \
                              '--headless', '--convert-to', 'html:HTML:UTF8', '--outdir', out_dir, download_path])
         except Exception as exc:
             logging.error('docs转html失败 %s' % download_path)

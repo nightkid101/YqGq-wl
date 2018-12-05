@@ -14,11 +14,11 @@ import subprocess
 # baidu
 from aip import AipOcr
 
-from config_sample import ocr_method
-from config_sample import azure_sub_key
-from config_sample import baidu_app_id
-from config_sample import baidu_api_key
-from config_sample import baidu_secret_key
+from config import ocr_method
+from config import azure_sub_key
+from config import baidu_app_id
+from config import baidu_api_key
+from config import baidu_secret_key
 from utility.AbbyyOnlineSdk import AbbyyOnlineSdk, ProcessingSettings
 
 

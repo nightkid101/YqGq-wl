@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c804d7ca-0bb3-409c-a4f8-0743a011eb52" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/test_1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YangqiGuoqi.py" beforeDir="false" afterPath="$PROJECT_DIR$/YangqiGuoqi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config_sample.py" beforeDir="false" afterPath="$PROJECT_DIR$/config_sample.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GuoNengTou.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YangqiGuoqi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ZhongGuoBingQiGongYe.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config_sample.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getProxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/getProxy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/utility_convert.py" beforeDir="false" afterPath="$PROJECT_DIR$/utility/utility_convert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/utility_ocr.py" beforeDir="false" afterPath="$PROJECT_DIR$/utility/utility_ocr.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,67 +23,101 @@
     <session id="-1617536915">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="33" />
-          <entry key="project.open.time.0" value="6" />
+          <entry key="project.closed" value="116" />
+          <entry key="project.open.time.0" value="9" />
           <entry key="project.open.time.1" value="3" />
-          <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.10" value="6" />
+          <entry key="project.open.time.11" value="6" />
           <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.5" value="10" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.7" value="3" />
-          <entry key="project.open.time.8" value="4" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="33" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.15" value="3" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.18" value="2" />
+          <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.4" value="4" />
+          <entry key="project.open.time.5" value="19" />
+          <entry key="project.open.time.6" value="5" />
+          <entry key="project.open.time.7" value="17" />
+          <entry key="project.open.time.8" value="20" />
+          <entry key="project.open.time.9" value="18" />
+          <entry key="project.opened" value="117" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="79" />
+          <entry key="py" value="210" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="79" />
+          <entry key="Python" value="210" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="51" />
           <entry key="dummy" value="7" />
-          <entry key="py" value="13814" />
+          <entry key="py" value="84800" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="13865" />
+          <entry key="Python" value="84850" />
+          <entry key="RegExp" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="YqGq-wl" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/YangqiGuoqi.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web_crawler_wl/YangqiGuoqi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="1067" column="43" selection-start-line="1067" selection-start-column="43" selection-end-line="1067" selection-end-column="43" />
+            <state relative-caret-position="6570">
+              <caret line="376" selection-start-line="376" selection-end-line="376" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
-                <marker date="1540033449002" expanded="true" signature="13693:20443" ph="..." />
-                <marker date="1540033449002" expanded="true" signature="13721:13722" ph="..." />
-                <marker date="1540033449002" expanded="true" signature="46765:53205" ph="..." />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config_sample.py">
+        <entry file="file://$PROJECT_DIR$/spider_wl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+            <state relative-caret-position="436">
+              <caret line="265" column="4" lean-forward="true" selection-start-line="265" selection-start-column="5" selection-end-line="267" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124542">
+              <caret line="6997" lean-forward="true" selection-start-line="6997" selection-end-line="6997" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+                <marker date="1543979183475" expanded="true" signature="314066:345485" ph="..." />
+                <marker date="1543979183475" expanded="true" signature="337562:345485" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -93,6 +134,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>status</find>
+      <find>encode</find>
+      <find>utility</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -104,18 +147,24 @@
         <option value="$PROJECT_DIR$/getProxy.py" />
         <option value="$PROJECT_DIR$/ZhongGuoBingQiGongYe.py" />
         <option value="$PROJECT_DIR$/GuoNengTou.py" />
-        <option value="$PROJECT_DIR$/config.py" />
-        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/utility/Caizhengju.py" />
         <option value="$PROJECT_DIR$/config_sample.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/Caizhengju.py" />
         <option value="$PROJECT_DIR$/YangqiGuoqi.py" />
+        <option value="$PROJECT_DIR$/web_crawler_wl/YangqiGuoqi.py" />
+        <option value="$PROJECT_DIR$/test_1.py" />
+        <option value="$PROJECT_DIR$/config.py" />
+        <option value="$PROJECT_DIR$/spider_wl.py" />
+        <option value="$PROJECT_DIR$/web_crawler_wl/Caizhengju.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="115" />
-    <option name="y" value="72" />
-    <option name="width" value="1728" />
-    <option name="height" value="829" />
+    <option name="x" value="324" />
+    <option name="y" value="303" />
+    <option name="width" value="1726" />
+    <option name="height" value="793" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -131,6 +180,11 @@
               <item name="YqGq-wl" type="b2602c69:ProjectViewProjectNode" />
               <item name="YqGq-wl" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="YqGq-wl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="YqGq-wl" type="462c0819:PsiDirectoryNode" />
+              <item name="web_crawler_wl" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -138,9 +192,14 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="lasttime&#9;null&#9;null&#10;initProxyMongoDB&#9;null&#9;null&#10;insert&#9;null&#9;null" />
-    <property name="last_opened_file_path" value="$USER_HOME$/gzjg-project-wang" />
+    <property name="SearchEverywhereHistoryKey" value="key = key.encode&#9;null&#9;null&#10;Zhongche&#9;null&#9;null&#10;WuhanYou&#9;null&#9;null&#10;delURLofZ&#9;null&#9;null&#10;accept&#9;null&#9;null&#10;json.loads&#9;null&#9;null&#10;sleep&#9;null&#9;null&#10;encoding&#9;ACTION&#9;ChangeFileEncodingAction&#10;HKQC&#9;null&#9;null&#10;TotalPages&#9;null&#9;null&#10;lasttime&#9;null&#9;null&#10;initProxyMongoDB&#9;null&#9;null&#10;insert&#9;null&#9;null" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -154,8 +213,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.YangqiGuoqi">
-    <configuration name="GuoNengTou" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.spider_wl">
+    <configuration name="Caizhengju (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="YqGq-wl" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -163,11 +222,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/web_crawler_wl" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GuoNengTou.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/web_crawler_wl/Caizhengju.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="YangqiGuoqi (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="YqGq-wl" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/web_crawler_wl" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/web_crawler_wl/YangqiGuoqi.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -197,7 +277,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ZhongGuoBingQiGongYe" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="spider_wl" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="YqGq-wl" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -209,28 +289,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ZhongGuoBingQiGongYe.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="YqGq-wl" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spider_wl.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -261,19 +320,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.GuoNengTou" />
-      <item itemvalue="Python.ZhongGuoBingQiGongYe" />
-      <item itemvalue="Python.test" />
       <item itemvalue="Python.YangqiGuoqi" />
+      <item itemvalue="Python.Caizhengju (1)" />
+      <item itemvalue="Python.YangqiGuoqi (1)" />
+      <item itemvalue="Python.spider_wl" />
       <item itemvalue="Python.test_1" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.YangqiGuoqi" />
+        <item itemvalue="Python.spider_wl" />
+        <item itemvalue="Python.Caizhengju (1)" />
         <item itemvalue="Python.test_1" />
-        <item itemvalue="Python.ZhongGuoBingQiGongYe" />
-        <item itemvalue="Python.GuoNengTou" />
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.YangqiGuoqi (1)" />
+        <item itemvalue="Python.YangqiGuoqi" />
       </list>
     </recent_temporary>
   </component>
@@ -302,29 +361,132 @@
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1853" height="919" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12527353" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49628252" visible="true" weight="0.124726474" />
+      <window_info id="Structure" order="1" sideWeight="0.5037175" side_tool="true" weight="0.124726474" />
+      <window_info id="Favorites" order="2" sideWeight="0.50063854" side_tool="true" weight="0.12527353" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.21528663" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30779055" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.36015326" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.21455939" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.69967175" weight="0.3320562" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8987965" weight="0.3716475" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3299363" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32950193" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3299363" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32950193" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49945295" weight="0.19029374" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.1012035" side_tool="true" weight="0.3805875" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.25287357" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49936143" visible="true" weight="0.124726474" />
+      <window_info id="Structure" order="1" sideWeight="0.5017182" side_tool="true" weight="0.12527353" />
+      <window_info id="Favorites" order="2" sideWeight="0.50063854" side_tool="true" weight="0.12527353" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.21455939" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.69967175" weight="0.3461047" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.8987965" visible="true" weight="0.2899106" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3299363" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32950193" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49945295" weight="0.19029374" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.1012035" side_tool="true" weight="0.3805875" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.25287357" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test.py</url>
+          <line>57</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test.py</url>
+          <line>49</line>
+          <option name="timeStamp" value="150" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_1.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="162" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/YangqiGuoqi.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="163" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/YangqiGuoqi.py</url>
+          <line>7453</line>
+          <option name="timeStamp" value="164" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>6875</line>
+          <option name="timeStamp" value="165" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>5691</line>
+          <option name="timeStamp" value="168" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>5620</line>
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>5844</line>
+          <option name="timeStamp" value="171" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>5948</line>
+          <option name="timeStamp" value="172" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_1.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="175" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>6157</line>
+          <option name="timeStamp" value="177" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/spider_wl.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="178" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>6355</line>
+          <option name="timeStamp" value="179" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>6510</line>
+          <option name="timeStamp" value="183" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>6660</line>
+          <option name="timeStamp" value="184" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="baseUrl" />
@@ -332,31 +494,10 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/requests/sessions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="706" selection-start-line="706" selection-end-line="706" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/pymongo/mongo_client.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="512" selection-start-line="512" selection-end-line="512" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/requests/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="725" selection-start-line="725" selection-end-line="725" />
         </state>
       </provider>
     </entry>
@@ -374,27 +515,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/pymongo/collection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="1444" selection-start-line="1444" selection-end-line="1444" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZhongGuoBingQiGongYe.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="44" column="8" lean-forward="true" selection-start-line="43" selection-end-line="177" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ZhongGuoBingQiGongYe.py" />
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -412,55 +533,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/automaic_extractor_cbrc_policy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="143" lean-forward="true" selection-start-line="143" selection-end-line="143" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GuoNengTou.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="60" column="79" lean-forward="true" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/automaic_extractor_cbrc_policy.py" />
+    <entry file="file://$PROJECT_DIR$/GuoNengTou.py" />
     <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/requests/api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
           <caret line="57" selection-start-line="57" selection-end-line="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/bs4/element.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="1153" selection-start-line="1153" selection-end-line="1153" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/json/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="353" selection-start-line="353" selection-end-line="353" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/json/decoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="356" selection-start-line="356" selection-end-line="356" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="82" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="82" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -471,22 +549,249 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config_sample.py">
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/pymongo/collection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+        <state relative-caret-position="161">
+          <caret line="692" selection-start-line="692" selection-end-line="692" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/YangqiGuoqi.py">
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/json/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2372">
+          <caret line="347" selection-start-line="347" selection-end-line="347" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="1067" selection-start-line="1067" selection-end-line="1067" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/requests/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="386" selection-start-line="386" selection-end-line="386" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/json/decoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6372">
+          <caret line="356" selection-start-line="356" selection-end-line="356" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/socket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10458">
+          <caret line="585" selection-start-line="585" selection-end-line="585" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/bs4/element.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="1276" selection-start-line="1276" selection-end-line="1276" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/pymongo/topology.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="198" selection-start-line="198" selection-end-line="198" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/pymongo/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/asn1crypto/ocsp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="150" column="6" selection-start-line="150" selection-start-column="6" selection-end-line="150" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/pymongo/periodic_executor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="128" selection-start-line="128" selection-end-line="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/pymongo/helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="198" selection-start-line="198" selection-end-line="198" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/utility_convert.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3582">
+          <caret line="220" column="22" selection-start-line="220" selection-start-column="4" selection-end-line="220" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/requests/sessions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11412">
+          <caret line="661" selection-start-line="661" selection-end-line="661" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/urllib3/connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="893">
+          <caret line="378" selection-start-line="378" selection-end-line="378" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/urllib3/util/connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="893">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/http/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="1211" selection-start-line="1211" selection-end-line="1211" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/urllib3/connectionpool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="599" selection-start-line="599" selection-end-line="599" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/requests/adapters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="448" selection-start-line="448" selection-end-line="448" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/requests/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16524">
+          <caret line="942" selection-start-line="942" selection-end-line="942" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/utility_ocr.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="1067" column="43" selection-start-line="1067" selection-start-column="43" selection-end-line="1067" selection-end-column="43" />
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/requests/exceptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="59" column="6" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-978997910/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="477" column="4" selection-start-line="477" selection-start-column="4" selection-end-line="477" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/pymongo/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2268">
+          <caret line="144" selection-start-line="144" selection-end-line="144" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Caizhengju.py" />
+    <entry file="file://$PROJECT_DIR$/YangqiGuoqi.py" />
+    <entry file="file://$PROJECT_DIR$/crawler.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/tokenize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="451" selection-start-line="451" selection-end-line="451" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1338">
+          <caret line="237" column="11" selection-start-line="237" selection-start-column="11" selection-end-line="237" selection-end-column="11" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-            <marker date="1540033449002" expanded="true" signature="13693:20443" ph="..." />
-            <marker date="1540033449002" expanded="true" signature="13721:13722" ph="..." />
-            <marker date="1540033449002" expanded="true" signature="46765:53205" ph="..." />
+            <marker date="1543372173051" expanded="true" signature="1605:9849" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web_crawler_wl/YangqiGuoqi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6570">
+          <caret line="376" selection-start-line="376" selection-end-line="376" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider_wl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="265" column="4" lean-forward="true" selection-start-line="265" selection-start-column="5" selection-end-line="267" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124542">
+          <caret line="6997" lean-forward="true" selection-start-line="6997" selection-end-line="6997" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1543979183475" expanded="true" signature="314066:345485" ph="..." />
+            <marker date="1543979183475" expanded="true" signature="337562:345485" ph="..." />
           </folding>
         </state>
       </provider>

@@ -11,7 +11,7 @@ import multiprocessing as mp
 from bs4 import BeautifulSoup as bs
 import pymongo
 import schedule
-import config_sample
+import config
 
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -33,17 +33,17 @@ proxySize = 0
 
 
 def initProxyMongoDB():
-    if config_sample.dev_mongo == '1':
+    if config.dev_mongo == '1':
         mongo_client = \
-        pymongo.MongoClient(config_sample.ali_mongodb_url, username=config_sample.ali_mongodb_username,
-                            password=config_sample.ali_mongodb_password,
-                            port=int(config_sample.ali_mongodb_port))
+        pymongo.MongoClient(config.ali_mongodb_url, username=config.ali_mongodb_username,
+                            password=config.ali_mongodb_password,
+                            port=int(config.ali_mongodb_port))
     else:
         mongo_client = pymongo.MongoClient(
-            host=config_sample.mongodb_host,
-            port=int(config_sample.mongodb_port),
-            username=None if config_sample.mongodb_username == '' else config_sample.mongodb_username,
-            password=None if config_sample.mongodb_password == '' else config_sample.mongodb_password)['proxypool']
+            host=config.mongodb_host,
+            port=int(config.mongodb_port),
+            username=None if config.mongodb_username == '' else config.mongodb_username,
+            password=None if config.mongodb_password == '' else config.mongodb_password)['proxypool']
     collProxy = mongo_client['proxypool']
     return collProxy
 

@@ -32,7 +32,7 @@ mongodb_host = 'localhost'
 mongodb_port = 27017
 mongodb_username = None
 mongodb_password = None
-mongodb_db_name = 'TaizhouCZJ'
+mongodb_db_name = 'MaanshanCZJ'
 mongodb_collection_name = ''
 
 chromeDriver_path = ''
