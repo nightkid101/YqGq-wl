@@ -2,16 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c804d7ca-0bb3-409c-a4f8-0743a011eb52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuoNengTou.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YangqiGuoqi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ZhongGuoBingQiGongYe.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config_sample.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getProxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/getProxy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_data/.~lock.第一批全国推开“证照分离”改革的具体事项表 .doc#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_data/.“十二五”节能减排规划编制要点.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_data/.经验交流材料撰写格式 .doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_data/太原市发展和改革委员会2016年决算公开.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_data/附件2.《关于深化会计人员职称制度改革的指导意见（征求意见稿）》起草说明.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider_wl.py" beforeDir="false" afterPath="$PROJECT_DIR$/spider_wl.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/utility_convert.py" beforeDir="false" afterPath="$PROJECT_DIR$/utility/utility_convert.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/utility_ocr.py" beforeDir="false" afterPath="$PROJECT_DIR$/utility/utility_ocr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/Caizhengju.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_crawler_wl/Caizhengju.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/file_data/中共宿州市委 宿州市人民政府关于深化国资国企改革的实施意见_宿发〔2016〕19号.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/file_data/中共宿州市委 宿州市人民政府关于深化国资国企改革的实施意见_宿发〔2016〕19号.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/file_data/中共宿州市委 宿州市人民政府关于深化国资国企改革的实施意见_宿发〔2016〕19号/page001.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/file_data/中共宿州市委 宿州市人民政府关于深化国资国企改革的实施意见_宿发〔2016〕19号/page002.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/file_data/中共宿州市委 宿州市人民政府关于深化国资国企改革的实施意见_宿发〔2016〕19号/page003.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/file_data/中共宿州市委 宿州市人民政府关于深化国资国企改革的实施意见_宿发〔2016〕19号/page004.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/file_data/中共宿州市委 宿州市人民政府关于深化国资国企改革的实施意见_宿发〔2016〕19号/page005.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/file_data/中共宿州市委 宿州市人民政府关于深化国资国企改革的实施意见_宿发〔2016〕19号/page006.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/file_data/中共宿州市委 宿州市人民政府关于深化国资国企改革的实施意见_宿发〔2016〕19号/page007.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/file_data/中共宿州市委 宿州市人民政府关于深化国资国企改革的实施意见_宿发〔2016〕19号/page008.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/file_data/中共宿州市委 宿州市人民政府关于深化国资国企改革的实施意见_宿发〔2016〕19号/page009.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/file_data/中共宿州市委 宿州市人民政府关于深化国资国企改革的实施意见_宿发〔2016〕19号/page010.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/file_data/中共宿州市委 宿州市人民政府关于深化国资国企改革的实施意见_宿发〔2016〕19号/page011.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_crawler_wl/file_data/中共宿州市委 宿州市人民政府关于深化国资国企改革的实施意见_宿发〔2016〕19号/page012.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,48 +38,49 @@
     <session id="-1617536915">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="116" />
+          <entry key="project.closed" value="147" />
           <entry key="project.open.time.0" value="9" />
-          <entry key="project.open.time.1" value="3" />
-          <entry key="project.open.time.10" value="6" />
-          <entry key="project.open.time.11" value="6" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.1" value="4" />
+          <entry key="project.open.time.10" value="9" />
+          <entry key="project.open.time.11" value="8" />
+          <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.14" value="1" />
-          <entry key="project.open.time.15" value="3" />
+          <entry key="project.open.time.15" value="8" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.4" value="4" />
-          <entry key="project.open.time.5" value="19" />
-          <entry key="project.open.time.6" value="5" />
+          <entry key="project.open.time.5" value="20" />
+          <entry key="project.open.time.6" value="7" />
           <entry key="project.open.time.7" value="17" />
-          <entry key="project.open.time.8" value="20" />
-          <entry key="project.open.time.9" value="18" />
-          <entry key="project.opened" value="117" />
+          <entry key="project.open.time.8" value="21" />
+          <entry key="project.open.time.9" value="32" />
+          <entry key="project.opened" value="149" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="210" />
+          <entry key="py" value="268" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="210" />
+          <entry key="Python" value="268" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="51" />
           <entry key="dummy" value="7" />
-          <entry key="py" value="84800" />
+          <entry key="py" value="118447" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="84850" />
+          <entry key="Python" value="118497" />
           <entry key="RegExp" value="1" />
         </counts>
       </usages-collector>
@@ -75,14 +91,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web_crawler_wl/YangqiGuoqi.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6570">
-              <caret line="376" selection-start-line="376" selection-end-line="376" />
+            <state relative-caret-position="2360">
+              <caret line="17367" column="44" selection-start-line="17367" selection-start-column="44" selection-end-line="17367" selection-end-column="44" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
+                <marker date="1548640499327" expanded="true" signature="314573:422825" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="338069:422825" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="361307:422825" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="384717:422825" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="391774:422825" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="407354:422825" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="422823:422825" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="430959:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="446701:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="461955:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="478080:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="486452:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="533349:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="564635:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="587692:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="610070:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="626565:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="643887:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="660482:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="668260:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="684310:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="715118:723260" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="730676:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="746364:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="787366:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="803941:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="819297:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="844589:860255" ph="..." />
+                <marker date="1548640499327" expanded="true" signature="852838:860255" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/get_law_lost_url.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2718">
+              <caret line="163" column="41" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -90,24 +144,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spider_wl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="265" column="4" lean-forward="true" selection-start-line="265" selection-start-column="5" selection-end-line="267" selection-end-column="20" />
+            <state relative-caret-position="6426">
+              <caret line="358" selection-start-line="358" selection-end-line="358" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124542">
-              <caret line="6997" lean-forward="true" selection-start-line="6997" selection-end-line="6997" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-                <marker date="1543979183475" expanded="true" signature="314066:345485" ph="..." />
-                <marker date="1543979183475" expanded="true" signature="337562:345485" ph="..." />
               </folding>
             </state>
           </provider>
@@ -116,8 +156,66 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
+            <state relative-caret-position="418">
               <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="684">
+              <caret line="58" selection-start-line="58" selection-end-line="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="864">
+              <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+                <marker date="1544712052212" expanded="true" signature="1520:2736" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+              <folding>
+                <marker date="1548077596587" expanded="true" signature="1621:9865" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web_crawler_wl/YangqiGuoqi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128916">
+              <caret line="7173" column="59" selection-start-line="7172" selection-start-column="40" selection-end-line="7174" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,8 +232,26 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>status</find>
-      <find>encode</find>
       <find>utility</find>
+      <find>encode</find>
+      <find>encod</find>
+      <find>gbk</find>
+      <find>key.en</find>
+      <find>input =</find>
+      <find>gb2312</find>
+      <find>browser.close</find>
+      <find>titleList.</find>
+      <find>;</find>
+      <find>return;</find>
+      <find>quote</find>
+      <find>gb23</find>
+      <find>网页跳转</find>
+      <find>webdriver</find>
+      <find>enter</find>
+      <find>webdri</find>
+      <find>handler</find>
+      <find>browser</find>
+      <find>wait</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -149,13 +265,15 @@
         <option value="$PROJECT_DIR$/GuoNengTou.py" />
         <option value="$PROJECT_DIR$/utility/Caizhengju.py" />
         <option value="$PROJECT_DIR$/config_sample.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/Caizhengju.py" />
         <option value="$PROJECT_DIR$/YangqiGuoqi.py" />
         <option value="$PROJECT_DIR$/web_crawler_wl/YangqiGuoqi.py" />
         <option value="$PROJECT_DIR$/test_1.py" />
-        <option value="$PROJECT_DIR$/config.py" />
+        <option value="$PROJECT_DIR$/test_2.py" />
         <option value="$PROJECT_DIR$/spider_wl.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/test_3.py" />
+        <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/web_crawler_wl/Caizhengju.py" />
       </list>
     </option>
@@ -172,7 +290,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,6 +306,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -197,6 +315,9 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -213,8 +334,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.spider_wl">
-    <configuration name="Caizhengju (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.Caizhengju">
+    <configuration name="Caizhengju" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="YqGq-wl" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -235,28 +356,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="YangqiGuoqi (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="YqGq-wl" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/web_crawler_wl" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/web_crawler_wl/YangqiGuoqi.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="YangqiGuoqi" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="YqGq-wl" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -268,7 +368,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/YangqiGuoqi.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -277,7 +377,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="spider_wl" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test_3" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="YqGq-wl" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -289,28 +389,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spider_wl.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test_1" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="YqGq-wl" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -320,19 +399,15 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.YangqiGuoqi" />
-      <item itemvalue="Python.Caizhengju (1)" />
-      <item itemvalue="Python.YangqiGuoqi (1)" />
-      <item itemvalue="Python.spider_wl" />
-      <item itemvalue="Python.test_1" />
+      <item itemvalue="Python.Caizhengju" />
+      <item itemvalue="Python.test_2" />
+      <item itemvalue="Python.test_3" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.spider_wl" />
-        <item itemvalue="Python.Caizhengju (1)" />
-        <item itemvalue="Python.test_1" />
-        <item itemvalue="Python.YangqiGuoqi (1)" />
-        <item itemvalue="Python.YangqiGuoqi" />
+        <item itemvalue="Python.Caizhengju" />
+        <item itemvalue="Python.test_3" />
+        <item itemvalue="Python.test_2" />
       </list>
     </recent_temporary>
   </component>
@@ -359,15 +434,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1853" height="919" extended-state="6" />
+    <frame x="64" y="-11" width="1853" height="901" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49628252" visible="true" weight="0.124726474" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49628252" visible="true" weight="0.1012035" />
       <window_info id="Structure" order="1" sideWeight="0.5037175" side_tool="true" weight="0.124726474" />
       <window_info id="Favorites" order="2" sideWeight="0.50063854" side_tool="true" weight="0.12527353" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.21455939" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.69967175" weight="0.3320562" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8987965" weight="0.3716475" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.69967175" weight="0.5281046" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8987965" weight="0.21568628" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3299363" />
@@ -407,12 +482,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test.py</url>
-          <line>57</line>
+          <line>58</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test.py</url>
-          <line>49</line>
+          <line>50</line>
           <option name="timeStamp" value="150" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -432,27 +507,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>6875</line>
+          <line>8461</line>
           <option name="timeStamp" value="165" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>5691</line>
+          <line>5701</line>
           <option name="timeStamp" value="168" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>5620</line>
+          <line>5630</line>
           <option name="timeStamp" value="169" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>5844</line>
+          <line>5854</line>
           <option name="timeStamp" value="171" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>5948</line>
+          <line>5958</line>
           <option name="timeStamp" value="172" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -462,7 +537,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>6157</line>
+          <line>6167</line>
           <option name="timeStamp" value="177" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -472,20 +547,337 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>6355</line>
+          <line>6365</line>
           <option name="timeStamp" value="179" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>6510</line>
+          <line>6520</line>
           <option name="timeStamp" value="183" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>6660</line>
+          <line>6670</line>
           <option name="timeStamp" value="184" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>6902</line>
+          <option name="timeStamp" value="185" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>7377</line>
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>7757</line>
+          <option name="timeStamp" value="192" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>7840</line>
+          <option name="timeStamp" value="197" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>8004</line>
+          <option name="timeStamp" value="201" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>8167</line>
+          <option name="timeStamp" value="203" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_2.py</url>
+          <line>59</line>
+          <option name="timeStamp" value="206" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>7554</line>
+          <option name="timeStamp" value="211" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>7591</line>
+          <option name="timeStamp" value="212" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>7708</line>
+          <option name="timeStamp" value="215" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>7538</line>
+          <option name="timeStamp" value="216" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>8400</line>
+          <option name="timeStamp" value="219" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>8490</line>
+          <option name="timeStamp" value="221" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>8563</line>
+          <option name="timeStamp" value="222" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>8724</line>
+          <option name="timeStamp" value="225" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>8869</line>
+          <option name="timeStamp" value="229" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>9203</line>
+          <option name="timeStamp" value="232" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>9331</line>
+          <option name="timeStamp" value="233" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>9284</line>
+          <option name="timeStamp" value="234" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>9565</line>
+          <option name="timeStamp" value="246" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>9569</line>
+          <option name="timeStamp" value="247" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>9696</line>
+          <option name="timeStamp" value="255" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>9607</line>
+          <option name="timeStamp" value="256" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>9865</line>
+          <option name="timeStamp" value="258" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>10095</line>
+          <option name="timeStamp" value="261" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>10336</line>
+          <option name="timeStamp" value="273" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>10751</line>
+          <option name="timeStamp" value="291" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>10905</line>
+          <option name="timeStamp" value="295" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>10896</line>
+          <option name="timeStamp" value="297" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>10893</line>
+          <option name="timeStamp" value="299" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>11151</line>
+          <option name="timeStamp" value="303" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>11300</line>
+          <option name="timeStamp" value="304" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>11452</line>
+          <option name="timeStamp" value="306" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>11378</line>
+          <option name="timeStamp" value="308" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>11600</line>
+          <option name="timeStamp" value="311" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>11532</line>
+          <option name="timeStamp" value="313" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>11766</line>
+          <option name="timeStamp" value="316" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>12240</line>
+          <option name="timeStamp" value="324" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>12400</line>
+          <option name="timeStamp" value="326" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>12612</line>
+          <option name="timeStamp" value="344" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>12753</line>
+          <option name="timeStamp" value="359" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>12919</line>
+          <option name="timeStamp" value="361" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>13078</line>
+          <option name="timeStamp" value="366" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>13218</line>
+          <option name="timeStamp" value="373" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>13405</line>
+          <option name="timeStamp" value="381" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>13573</line>
+          <option name="timeStamp" value="389" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>13486</line>
+          <option name="timeStamp" value="390" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>13886</line>
+          <option name="timeStamp" value="396" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>14120</line>
+          <option name="timeStamp" value="404" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>14360</line>
+          <option name="timeStamp" value="406" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>14845</line>
+          <option name="timeStamp" value="417" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>14400</line>
+          <option name="timeStamp" value="441" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>14534</line>
+          <option name="timeStamp" value="445" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>15004</line>
+          <option name="timeStamp" value="449" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>15514</line>
+          <option name="timeStamp" value="481" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_3.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="486" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>15713</line>
+          <option name="timeStamp" value="487" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>15709</line>
+          <option name="timeStamp" value="489" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>16045</line>
+          <option name="timeStamp" value="497" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>16165</line>
+          <option name="timeStamp" value="502" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>16661</line>
+          <option name="timeStamp" value="522" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
+          <line>17326</line>
+          <option name="timeStamp" value="530" />
+        </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -494,28 +886,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/pymongo/mongo_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="512" selection-start-line="512" selection-end-line="512" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/pymongo/operations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/pymongo/cursor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="222" selection-start-line="222" selection-end-line="222" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZhongGuoBingQiGongYe.py" />
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -556,20 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/json/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2372">
-          <caret line="347" selection-start-line="347" selection-end-line="347" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="1067" selection-start-line="1067" selection-end-line="1067" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/requests/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -595,13 +951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="1276" selection-start-line="1276" selection-end-line="1276" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/pymongo/topology.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="198" selection-start-line="198" selection-end-line="198" />
         </state>
       </provider>
     </entry>
@@ -675,13 +1024,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/requests/adapters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="448" selection-start-line="448" selection-end-line="448" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/requests/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16524">
@@ -729,69 +1071,186 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/json/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="343" selection-start-line="343" selection-end-line="343" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/ast.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/sre_parse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="615" selection-start-line="615" selection-end-line="615" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/chardet/sbcharsetprober.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/pymongo/topology.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="191" column="63" lean-forward="true" selection-start-line="191" selection-start-column="63" selection-end-line="191" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/requests/adapters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="515" selection-start-line="515" selection-end-line="515" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/PIL/Image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="2579" selection-start-line="2579" selection-end-line="2579" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/crawler/lib/python3.6/site-packages/selenium/webdriver/common/service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        <state relative-caret-position="306">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1338">
-          <caret line="237" column="11" selection-start-line="237" selection-start-column="11" selection-end-line="237" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <marker date="1543372173051" expanded="true" signature="1605:9849" ph="..." />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/automaic_extractor_cbrc_policy.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_1.py">
+    <entry file="file://$PROJECT_DIR$/get_law_lost_url.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web_crawler_wl/YangqiGuoqi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6570">
-          <caret line="376" selection-start-line="376" selection-end-line="376" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2718">
+          <caret line="163" column="41" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spider_wl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="265" column="4" lean-forward="true" selection-start-line="265" selection-start-column="5" selection-end-line="267" selection-end-column="20" />
+        <state relative-caret-position="6426">
+          <caret line="358" selection-start-line="358" selection-end-line="358" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test_3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1544712052212" expanded="true" signature="1520:2736" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+          <folding>
+            <marker date="1548077596587" expanded="true" signature="1621:9865" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web_crawler_wl/YangqiGuoqi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128916">
+          <caret line="7173" column="59" selection-start-line="7172" selection-start-column="40" selection-end-line="7174" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
+        <state relative-caret-position="418">
           <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124542">
-          <caret line="6997" lean-forward="true" selection-start-line="6997" selection-end-line="6997" />
+        <state relative-caret-position="2360">
+          <caret line="17367" column="44" selection-start-line="17367" selection-start-column="44" selection-end-line="17367" selection-end-column="44" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1543979183475" expanded="true" signature="314066:345485" ph="..." />
-            <marker date="1543979183475" expanded="true" signature="337562:345485" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="314573:422825" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="338069:422825" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="361307:422825" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="384717:422825" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="391774:422825" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="407354:422825" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="422823:422825" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="430959:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="446701:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="461955:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="478080:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="486452:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="533349:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="564635:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="587692:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="610070:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="626565:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="643887:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="660482:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="668260:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="684310:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="715118:723260" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="730676:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="746364:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="787366:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="803941:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="819297:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="844589:860255" ph="..." />
+            <marker date="1548640499327" expanded="true" signature="852838:860255" ph="..." />
           </folding>
         </state>
       </provider>

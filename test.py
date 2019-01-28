@@ -6,6 +6,7 @@ from pymongo import MongoClient
 from bs4 import BeautifulSoup
 import config
 from utility import utility_convert
+import binascii
 
 #引入代理
 from getProxy import getOneProxy
