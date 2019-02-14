@@ -1,6 +1,8 @@
 import requests
 import re
 import os
+import time
+from time import sleep
 from pymongo import MongoClient
 from bs4 import BeautifulSoup
 import config
@@ -34,7 +36,6 @@ chrome_options.add_argument('--silent')
 chrome_options.add_argument('lang=zh_CN.UTF-8')
 chrome_options.add_argument('user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36')
 
-from time import sleep
 import json
 import logging
 import tesserocr
@@ -18153,6 +18154,1103 @@ def GDJieyangCZJ():
     logger.info("finish")
     return
 
+#112.山东省青岛市财政局
+def SDQingdaoCZJ():
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
+    baseURL = 'http://27.223.1.61:8080/searchqdf/WebSite/cms/SearchInfoList.aspx?lkocok_pageNo='
+    siteURL = 'http://qdcz.qingdao.gov.cn/'
+    for key in config.keywords_list:
+        quitflag = 0  # 到达之前爬过的网址时的退出标记
+        last_updated_url = ''  # 记录上次爬过的网站网址
+        if crawler.find({'url': siteURL}).count() > 0:
+            last = crawler.find_one({'url': siteURL})['last_updated']
+            if key in last:
+                last_updated_url = last[key]
+        pageNum = 1
+        flag = 0
+        count = 0
+        logger.info('山东省青岛市财政局' + '关键词：' + key)
+        while flag < 3:
+            try:
+                endtime = time.strftime('%Y-%m-%d',time.localtime(time.time()))
+                requestURL = baseURL + str(pageNum) + '&searchContent=' + key + '&searchDateEnd=' + endtime
+                r = requests.get(requestURL, headers=headers)
+                r.encoding = r.apparent_encoding
+                basesoup = BeautifulSoup(r.text, 'lxml')
+                titleList = basesoup.find_all('td', align="left", style="padding-left:5px;")
+                total = basesoup.find('table', align="right", id="pagerTable")
+                if re.search('(\d+)',total.text):
+                    totalResults = int(re.search('(\d+)',total.text)[0])
+                flag = 3
+            except (ReadTimeout, ConnectionError, Exception) as e:
+                logger.error(e)
+                flag += 1
+                if flag == 3:
+                    logger.info('Sleeping...')
+                    sleep(60 * 10)
+                    flag = 0
+                logger.info('重新请求网页中...')
+                sleep(10 + 20 * flag)
+        while titleList:
+            for table in titleList:
+                a = table.find('a')
+                tmp = a['onclick']
+                regex = r"\d+"
+                matches = re.finditer(regex, tmp)
+                tmplist = []
+                for matchNum, match in enumerate(matches):
+                    tmplist.append(match.group())
+                articleURL = 'http://www.qdf.gov.cn/'
+                for col in range(len(tmplist)-2,0,-1):
+                    articleURL += 'n'+tmplist[col]+'/'
+                articleURL += tmplist[0] + '.html'
+                count += 1
+                flag = 0
+                # 如果是最新的网页，则更新crawlerCollection
+                index = titleList.index(table)
+                if pageNum == 1 and index == 0:  # 第一页的第一个网址
+                    if crawler.find({'url': siteURL}).count() > 0:  # 如果原来爬过这个siteURL，则更新last_updated字段
+                        last = crawler.find_one({'url': siteURL})['last_updated']
+                        if key in last:
+                            logger.info('更新last_updated for 关键词： ' + key)
+                        else:
+                            logger.info('首次插入last_updated for 关键词： ' + key)
+                        last[key] = articleURL
+                        crawler.update_one({'url': siteURL}, {'$set': {'last_updated': last}})
+                    else:  # 否则向crawlerCollection插入新的数据
+                        last = {key: articleURL}
+                        crawler.insert_one({'url': siteURL, 'last_updated': last})
+                        logger.info('首次插入last_updated for 关键词： ' + key)
+                # 如果到达上次爬取的网址
+                if articleURL == last_updated_url:
+                    quitflag = 3
+                    logger.info('到达上次爬取的进度')
+                    break
+                while flag < 3:
+                    try:
+                        article = requests.get(articleURL, headers=headers)
+                        article.encoding = article.apparent_encoding
+                        articleSoup = BeautifulSoup(article.text, 'lxml')
+                        flag = 3
+
+                        # 保存网页源码
+                        htmlSource = article.text
+
+                        # html的URL地址
+                        htmlURL = articleURL
+
+                        # 保存文章标题信息
+                        articleTitle = articleSoup.find('div',class_='content_title').text
+
+                        # 保存文章发布时间
+                        publishTime = ''
+                        timeNode = articleSoup.find('div',class_='content_date')
+                        if timeNode:
+                            if re.search('(\d+-\d+-\d+)', timeNode.text):
+                                publishTime = re.search('(\d+-\d+-\d+)', timeNode.text)[0].replace('-', '')
+
+                        # 保存文章位置
+                        articleLocation = ''
+                        if articleSoup.find('div', class_="content_path"):
+                            articleLocation = articleSoup.find('div', class_="content_path").text.replace(' ', '').replace('\n', '')
+
+                        # 保存文章正文
+                        articleText = ''
+                        if articleSoup.find('div', class_="content_wz"):
+                            articleText = articleSoup.find('div', class_="content_wz").text
+
+                        # 判断标题或正文是否含有关键词
+                        matched_keywords_list = []
+                        for each_keyword in config.keywords_list:
+                            if each_keyword in articleTitle or each_keyword in articleText:
+                                matched_keywords_list.append(each_keyword)
+                        if matched_keywords_list.__len__() > 0:
+                            if collection.find({'url': htmlURL}).count() == 0:
+                                item = {
+                                    'url': htmlURL,
+                                    'title': articleTitle,
+                                    'date': publishTime,
+                                    'site': '国家、省、市、区、县财政部门网站-山东省青岛市财政局',
+                                    'keyword': matched_keywords_list,
+                                    'tag_text': articleLocation,
+                                    'content': articleText,
+                                    'html': htmlSource
+                                }
+                                logger.info('#insert_new_article: ' + articleTitle)
+                                result = collection.insert_one(item)
+                                logger.info(result.inserted_id)
+                            else:
+                                logger.info('#article already exists:' + articleTitle)
+                        else:
+                            logger.info('#no keyword matched: ' + articleTitle)
+                    except (ReadTimeout, ConnectionError, Exception) as e:
+                        logger.error(e)
+                        flag += 1
+                        logger.info('重新请求网页中...')
+                        sleep(10 + 20 * flag)
+                        if flag == 3:
+                            logger.info('重新请求失败')
+                            logger.info('Sleeping...')
+            logger.info('山东省青岛市财政局-' + key + '-pageNum: ' + str(pageNum))
+            if quitflag == 3 or count>=totalResults:
+                break
+            pageNum += 1
+            flag = 0
+            while flag < 3:
+                try:
+                    requestURL = baseURL + str(pageNum) + '&searchContent=' + key + '&searchDateEnd=' + endtime
+                    r = requests.get(requestURL, headers=headers)
+                    r.encoding = r.apparent_encoding
+                    basesoup = BeautifulSoup(r.text, 'lxml')
+                    titleList = basesoup.find_all('td', align="left", style="padding-left:5px;")
+                    flag = 3
+                except (ReadTimeout, ConnectionError, Exception) as e:
+                    logger.error(e)
+                    flag += 1
+                    if flag == 3:
+                        logger.info('Sleeping...')
+                        sleep(60 * 10)
+                        flag = 0
+                    logger.info('重新请求网页中...')
+                    sleep(10 + 20 * flag)
+    logger.info("finish")
+    return
+
+#113.山东省东营市财政局
+def SDDongyingCZJ():
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
+    baseURL = 'http://dyczj.dongying.gov.cn/second/search.aspx?key='
+    siteURL = 'http://dyczj.dongying.gov.cn/'
+    for key in config.keywords_list:
+        quitflag = 0  # 到达之前爬过的网址时的退出标记
+        last_updated_url = ''  # 记录上次爬过的网站网址
+        if crawler.find({'url': siteURL}).count() > 0:
+            last = crawler.find_one({'url': siteURL})['last_updated']
+            if key in last:
+                last_updated_url = last[key]
+        pageNum = 1
+        flag = 0
+        logger.info('山东省东营市财政局' + '关键词：' + key)
+        while flag < 3:
+            try:
+                requestURL = baseURL + key + '&page=' + str(pageNum)
+                r = requests.get(requestURL, headers=headers)
+                r.encoding = r.apparent_encoding
+                basesoup = BeautifulSoup(r.text, 'lxml')
+                total = basesoup.find('div', id="page2")
+                try:
+                    if re.search('(\d+)', total.text):
+                        totalPages = int(re.search('(\d+)', total.text)[0])
+                except:
+                    totalPages = 0
+                    titleList = []
+                    break
+                titleList = basesoup.find_all('li', style="font-size:12px")
+                flag = 3
+            except (ReadTimeout, ConnectionError, Exception) as e:
+                logger.error(e)
+                flag += 1
+                if flag == 3:
+                    logger.info('Sleeping...')
+                    sleep(60 * 10)
+                    flag = 0
+                logger.info('重新请求网页中...')
+                sleep(10 + 20 * flag)
+        while titleList:
+            for table in titleList:
+                a = table.find('a')
+                if 'http://' in a['href']:
+                    articleURL = a['href']
+                else:
+                    articleURL = 'http://dyczj.dongying.gov.cn/' + a['href']
+                flag = 0
+                # 如果是最新的网页，则更新crawlerCollection
+                index = titleList.index(table)
+                if pageNum == 1 and index == 0:  # 第一页的第一个网址
+                    if crawler.find({'url': siteURL}).count() > 0:  # 如果原来爬过这个siteURL，则更新last_updated字段
+                        last = crawler.find_one({'url': siteURL})['last_updated']
+                        if key in last:
+                            logger.info('更新last_updated for 关键词： ' + key)
+                        else:
+                            logger.info('首次插入last_updated for 关键词： ' + key)
+                        last[key] = articleURL
+                        crawler.update_one({'url': siteURL}, {'$set': {'last_updated': last}})
+                    else:  # 否则向crawlerCollection插入新的数据
+                        last = {key: articleURL}
+                        crawler.insert_one({'url': siteURL, 'last_updated': last})
+                        logger.info('首次插入last_updated for 关键词： ' + key)
+                # 如果到达上次爬取的网址
+                if articleURL == last_updated_url:
+                    quitflag = 3
+                    logger.info('到达上次爬取的进度')
+                    break
+                while flag < 3:
+                    try:
+                        article = requests.get(articleURL, headers=headers)
+                        article.encoding = article.apparent_encoding
+                        articleSoup = BeautifulSoup(article.text, 'lxml')
+                        flag = 3
+
+                        # 保存网页源码
+                        htmlSource = article.text
+
+                        # html的URL地址
+                        htmlURL = articleURL
+
+                        # 保存文章标题信息
+                        articleTitle = a.text
+
+                        # 保存文章发布时间
+                        publishTime = ''
+                        timeNode = table.find('span')
+                        if timeNode:
+                            if re.search('(\d+-\d+-\d+)', timeNode.text):
+                                publishTime = re.search('(\d+-\d+-\d+)', timeNode.text)[0].replace('-', '')
+
+                        # 保存文章位置
+                        articleLocation = ''
+
+                        # 保存文章正文
+                        articleText = ''
+                        if articleSoup.find('div', class_="mes_nr"):
+                            articleText = articleSoup.find('div', class_="mes_nr").text
+
+                        # 判断标题或正文是否含有关键词
+                        matched_keywords_list = []
+                        for each_keyword in config.keywords_list:
+                            if each_keyword in articleTitle or each_keyword in articleText:
+                                matched_keywords_list.append(each_keyword)
+                        if matched_keywords_list.__len__() > 0:
+                            if collection.find({'url': htmlURL}).count() == 0:
+                                item = {
+                                    'url': htmlURL,
+                                    'title': articleTitle,
+                                    'date': publishTime,
+                                    'site': '国家、省、市、区、县财政部门网站-山东省山东省东营市财政局',
+                                    'keyword': matched_keywords_list,
+                                    'tag_text': articleLocation,
+                                    'content': articleText,
+                                    'html': htmlSource
+                                }
+                                logger.info('#insert_new_article: ' + articleTitle)
+                                result = collection.insert_one(item)
+                                logger.info(result.inserted_id)
+                            else:
+                                logger.info('#article already exists:' + articleTitle)
+                        else:
+                            logger.info('#no keyword matched: ' + articleTitle)
+                    except (ReadTimeout, ConnectionError, Exception) as e:
+                        logger.error(e)
+                        flag += 1
+                        logger.info('重新请求网页中...')
+                        sleep(10 + 20 * flag)
+                        if flag == 3:
+                            logger.info('重新请求失败')
+                            logger.info('Sleeping...')
+            logger.info('山东省东营市财政局-' + key + '-pageNum: ' + str(pageNum))
+            if quitflag == 3 or pageNum >= totalPages:
+                break
+            pageNum += 1
+            flag = 0
+            while flag < 3:
+                try:
+                    requestURL = baseURL + key + '&page=' + str(pageNum)
+                    r = requests.get(requestURL, headers=headers)
+                    r.encoding = r.apparent_encoding
+                    basesoup = BeautifulSoup(r.text, 'lxml')
+                    titleList = basesoup.find_all('li', style="font-size:12px")
+                    flag = 3
+                except (ReadTimeout, ConnectionError, Exception) as e:
+                    logger.error(e)
+                    flag += 1
+                    if flag == 3:
+                        logger.info('Sleeping...')
+                        sleep(60 * 10)
+                        flag = 0
+                    logger.info('重新请求网页中...')
+                    sleep(10 + 20 * flag)
+    logger.info("finish")
+    return
+
+#114.山东省日照市财政局
+def SDRizhaoCZJ():
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
+    baseURL = 'http://www.rzcz.gov.cn/search_'
+    siteURL = 'http://www.rzcz.gov.cn/in/'
+    for key in config.keywords_list:
+        quitflag = 0  # 到达之前爬过的网址时的退出标记
+        last_updated_url = ''  # 记录上次爬过的网站网址
+        if crawler.find({'url': siteURL}).count() > 0:
+            last = crawler.find_one({'url': siteURL})['last_updated']
+            if key in last:
+                last_updated_url = last[key]
+        pageNum = 1
+        flag = 0
+        logger.info('山东省日照市财政局' + '关键词：' + key)
+        while flag < 3:
+            try:
+                requestURL = baseURL + str(pageNum) + '.jspx?q=' + key
+                r = requests.get(requestURL, headers=headers)
+                r.encoding = r.apparent_encoding
+                basesoup = BeautifulSoup(r.text, 'lxml')
+                titleList = basesoup.find('ul', id="text", class_="list").find_all('li')
+                flag = 3
+            except (ReadTimeout, ConnectionError, Exception) as e:
+                logger.error(e)
+                flag += 1
+                if flag == 3:
+                    logger.info('Sleeping...')
+                    sleep(60 * 10)
+                    flag = 0
+                logger.info('重新请求网页中...')
+                sleep(10 + 20 * flag)
+        while titleList:
+            for table in titleList:
+                a = table.find('a')
+                if 'http://' in a['href']:
+                    articleURL = a['href']
+                else:
+                    articleURL = 'http://www.rzcz.gov.cn' + a['href']
+                flag = 0
+                # 如果是最新的网页，则更新crawlerCollection
+                index = titleList.index(table)
+                if pageNum == 1 and index == 0:  # 第一页的第一个网址
+                    if crawler.find({'url': siteURL}).count() > 0:  # 如果原来爬过这个siteURL，则更新last_updated字段
+                        last = crawler.find_one({'url': siteURL})['last_updated']
+                        if key in last:
+                            logger.info('更新last_updated for 关键词： ' + key)
+                        else:
+                            logger.info('首次插入last_updated for 关键词： ' + key)
+                        last[key] = articleURL
+                        crawler.update_one({'url': siteURL}, {'$set': {'last_updated': last}})
+                    else:  # 否则向crawlerCollection插入新的数据
+                        last = {key: articleURL}
+                        crawler.insert_one({'url': siteURL, 'last_updated': last})
+                        logger.info('首次插入last_updated for 关键词： ' + key)
+                # 如果到达上次爬取的网址
+                if articleURL == last_updated_url:
+                    quitflag = 3
+                    logger.info('到达上次爬取的进度')
+                    break
+                while flag < 3:
+                    try:
+                        article = requests.get(articleURL, headers=headers)
+                        article.encoding = article.apparent_encoding
+                        articleSoup = BeautifulSoup(article.text, 'lxml')
+                        flag = 3
+
+                        # 保存网页源码
+                        htmlSource = article.text
+
+                        # html的URL地址
+                        htmlURL = articleURL
+
+                        # 保存文章标题信息
+                        articleTitle = a.text.replace(' ','')
+
+                        # 保存文章发布时间
+                        publishTime = ''
+                        timeNode = articleSoup.find('div', class_='into')
+                        if timeNode:
+                            if re.search('(\d+-\d+-\d+)', timeNode.text):
+                                publishTime = re.search('(\d+-\d+-\d+)', timeNode.text)[0].replace('-', '')
+
+                        # 保存文章位置
+                        articleLocation = ''
+                        if articleSoup.find('span', class_="dangqian"):
+                            articleLocation = articleSoup.find('span', class_="dangqian").text
+
+                        # 保存文章正文
+                        articleText = ''
+                        if articleSoup.find('div', class_="text"):
+                            articleText = articleSoup.find('div', class_="text").text
+                        elif articleSoup.find('div', class_="TRS_Editor"):
+                            articleText = articleSoup.find('div', class_="TRS_Editor").text
+
+                        # 判断标题或正文是否含有关键词
+                        matched_keywords_list = []
+                        for each_keyword in config.keywords_list:
+                            if each_keyword in articleTitle or each_keyword in articleText:
+                                matched_keywords_list.append(each_keyword)
+                        if matched_keywords_list.__len__() > 0:
+                            if collection.find({'url': htmlURL}).count() == 0:
+                                item = {
+                                    'url': htmlURL,
+                                    'title': articleTitle,
+                                    'date': publishTime,
+                                    'site': '国家、省、市、区、县财政部门网站-山东省日照市财政局',
+                                    'keyword': matched_keywords_list,
+                                    'tag_text': articleLocation,
+                                    'content': articleText,
+                                    'html': htmlSource
+                                }
+                                logger.info('#insert_new_article: ' + articleTitle)
+                                result = collection.insert_one(item)
+                                logger.info(result.inserted_id)
+                            else:
+                                logger.info('#article already exists:' + articleTitle)
+                        else:
+                            logger.info('#no keyword matched: ' + articleTitle)
+                    except (ReadTimeout, ConnectionError, Exception) as e:
+                        logger.error(e)
+                        flag += 1
+                        logger.info('重新请求网页中...')
+                        sleep(10 + 20 * flag)
+                        if flag == 3:
+                            logger.info('重新请求失败')
+                            logger.info('Sleeping...')
+            logger.info('山东省日照市财政局-' + key + '-pageNum: ' + str(pageNum))
+            if quitflag == 3:
+                break
+            pageNum += 1
+            flag = 0
+            while flag < 3:
+                try:
+                    requestURL = baseURL + str(pageNum) + '.jspx?q=' + key
+                    r = requests.get(requestURL, headers=headers)
+                    r.encoding = r.apparent_encoding
+                    basesoup = BeautifulSoup(r.text, 'lxml')
+                    titleList = basesoup.find('ul', id="text", class_="list").find_all('li')
+                    flag = 3
+                except (ReadTimeout, ConnectionError, Exception) as e:
+                    logger.error(e)
+                    flag += 1
+                    if flag == 3:
+                        logger.info('Sleeping...')
+                        sleep(60 * 10)
+                        flag = 0
+                    logger.info('重新请求网页中...')
+                    sleep(10 + 20 * flag)
+    logger.info("finish")
+    return
+
+#115.山东省枣庄市财政局
+def SDZaozhuangCZJ():
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
+    baseURL = 'http://www.sdzzcz.gov.cn/search?pageNo='
+    siteURL = 'http://www.sdzzcz.gov.cn/'
+    for key in config.keywords_list:
+        quitflag = 0  # 到达之前爬过的网址时的退出标记
+        last_updated_url = ''  # 记录上次爬过的网站网址
+        if crawler.find({'url': siteURL}).count() > 0:
+            last = crawler.find_one({'url': siteURL})['last_updated']
+            if key in last:
+                last_updated_url = last[key]
+        pageNum = 1
+        flag = 0
+        logger.info('山东省枣庄市财政局' + '关键词：' + key)
+        while flag < 3:
+            try:
+                requestURL = baseURL + str(pageNum) + '&stariid=&nextid=&likeing=' + key
+                r = requests.get(requestURL, headers=headers)
+                r.encoding = r.apparent_encoding
+                basesoup = BeautifulSoup(r.text, 'lxml')
+                titleList = basesoup.find('ul', class_="nr_list_first").find_all('li')
+                flag = 3
+            except (ReadTimeout, ConnectionError, Exception) as e:
+                logger.error(e)
+                flag += 1
+                if flag == 3:
+                    logger.info('Sleeping...')
+                    sleep(60 * 10)
+                    flag = 0
+                logger.info('重新请求网页中...')
+                sleep(10 + 20 * flag)
+        while titleList:
+            for table in titleList:
+                a = table.find('a')
+                if 'http://' in a['href']:
+                    articleURL = a['href']
+                else:
+                    articleURL = 'http://www.sdzzcz.gov.cn/' + a['href']
+                flag = 0
+                # 如果是最新的网页，则更新crawlerCollection
+                index = titleList.index(table)
+                if pageNum == 1 and index == 0:  # 第一页的第一个网址
+                    if crawler.find({'url': siteURL}).count() > 0:  # 如果原来爬过这个siteURL，则更新last_updated字段
+                        last = crawler.find_one({'url': siteURL})['last_updated']
+                        if key in last:
+                            logger.info('更新last_updated for 关键词： ' + key)
+                        else:
+                            logger.info('首次插入last_updated for 关键词： ' + key)
+                        last[key] = articleURL
+                        crawler.update_one({'url': siteURL}, {'$set': {'last_updated': last}})
+                    else:  # 否则向crawlerCollection插入新的数据
+                        last = {key: articleURL}
+                        crawler.insert_one({'url': siteURL, 'last_updated': last})
+                        logger.info('首次插入last_updated for 关键词： ' + key)
+                # 如果到达上次爬取的网址
+                if articleURL == last_updated_url:
+                    quitflag = 3
+                    logger.info('到达上次爬取的进度')
+                    break
+                while flag < 3:
+                    try:
+                        article = requests.get(articleURL, headers=headers)
+                        article.encoding = article.apparent_encoding
+                        articleSoup = BeautifulSoup(article.text, 'lxml')
+                        flag = 3
+
+                        # 保存网页源码
+                        htmlSource = article.text
+
+                        # html的URL地址
+                        htmlURL = articleURL
+
+                        # 保存文章标题信息
+                        articleTitle = a.text.replace(' ', '').replace('\r', '').replace('\t', '').replace('\n', '')
+
+                        # 保存文章发布时间
+                        publishTime = ''
+                        timeNode = table.find('em')
+                        if timeNode:
+                            if re.search('(\d+-\d+-\d+)', timeNode.text):
+                                publishTime = '20' + re.search('(\d+-\d+-\d+)', timeNode.text)[0].replace('-', '')
+
+                        # 保存文章位置
+                        articleLocation = ''
+                        if articleSoup.find('div', class_="dqwz"):
+                            articleLocation = articleSoup.find('div', class_="dqwz").text.replace(' ', '').replace('\r', '').replace('\t', '').replace('\n', '')
+
+                        # 保存文章正文
+                        articleText = ''
+                        if articleSoup.find('div', class_="nr_list_xxzl", id="news_content"):
+                            articleText = articleSoup.find('div', class_="nr_list_xxzl", id="news_content").text
+
+                        # 判断标题或正文是否含有关键词
+                        matched_keywords_list = []
+                        for each_keyword in config.keywords_list:
+                            if each_keyword in articleTitle or each_keyword in articleText:
+                                matched_keywords_list.append(each_keyword)
+                        if matched_keywords_list.__len__() > 0:
+                            if collection.find({'url': htmlURL}).count() == 0:
+                                item = {
+                                    'url': htmlURL,
+                                    'title': articleTitle,
+                                    'date': publishTime,
+                                    'site': '国家、省、市、区、县财政部门网站-山东省枣庄市财政局',
+                                    'keyword': matched_keywords_list,
+                                    'tag_text': articleLocation,
+                                    'content': articleText,
+                                    'html': htmlSource
+                                }
+                                logger.info('#insert_new_article: ' + articleTitle)
+                                result = collection.insert_one(item)
+                                logger.info(result.inserted_id)
+                            else:
+                                logger.info('#article already exists:' + articleTitle)
+                        else:
+                            logger.info('#no keyword matched: ' + articleTitle)
+                    except (ReadTimeout, ConnectionError, Exception) as e:
+                        logger.error(e)
+                        flag += 1
+                        logger.info('重新请求网页中...')
+                        sleep(10 + 20 * flag)
+                        if flag == 3:
+                            logger.info('重新请求失败')
+                            logger.info('Sleeping...')
+            logger.info('山东省枣庄市财政局-' + key + '-pageNum: ' + str(pageNum))
+            if quitflag == 3:
+                break
+            pageNum += 1
+            flag = 0
+            while flag < 3:
+                try:
+                    requestURL = baseURL + str(pageNum) + '&stariid=&nextid=&likeing=' + key
+                    r = requests.get(requestURL, headers=headers)
+                    r.encoding = r.apparent_encoding
+                    basesoup = BeautifulSoup(r.text, 'lxml')
+                    titleList = basesoup.find('ul', class_="nr_list_first").find_all('li')
+                    flag = 3
+                except (ReadTimeout, ConnectionError, Exception) as e:
+                    logger.error(e)
+                    flag += 1
+                    if flag == 3:
+                        logger.info('Sleeping...')
+                        sleep(60 * 10)
+                        flag = 0
+                    logger.info('重新请求网页中...')
+                    sleep(10 + 20 * flag)
+    logger.info("finish")
+    return
+
+#116.山东省烟台市财政局
+def SDYantaiCZJ():
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
+    baseURL = 'http://czj.yantai.gov.cn/jrobot/search.do?webid=97&pg=10&p='
+    siteURL = 'http://czj.yantai.gov.cn/'
+    for key in config.keywords_list:
+        quitflag = 0  # 到达之前爬过的网址时的退出标记
+        last_updated_url = ''  # 记录上次爬过的网站网址
+        if crawler.find({'url': siteURL}).count() > 0:
+            last = crawler.find_one({'url': siteURL})['last_updated']
+            if key in last:
+                last_updated_url = last[key]
+        pageNum = 1
+        flag = 0
+        count = 0
+        logger.info('山东省烟台市财政局' + '关键词：' + key)
+        while flag < 3:
+            try:
+                requestURL = baseURL + str(pageNum) + '&tpl=2&category=&q=' + key + '&pos=&od=&date=&date='
+                r = requests.get(requestURL, headers=headers)
+                r.encoding = r.apparent_encoding
+                basesoup = BeautifulSoup(r.text, 'lxml')
+                totalResults = int(basesoup.find('div', id="jsearch-info-box")['data-total'])
+                titleList = basesoup.find('div', id="jsearch-result-items", class_="ui-search-result-items").find_all('div', class_="jsearch-result-box")
+                flag = 3
+            except (ReadTimeout, ConnectionError, Exception) as e:
+                logger.error(e)
+                flag += 1
+                if flag == 3:
+                    logger.info('Sleeping...')
+                    sleep(60 * 10)
+                    flag = 0
+                logger.info('重新请求网页中...')
+                sleep(10 + 20 * flag)
+        while titleList:
+            for table in titleList:
+                a = table.find('a')
+                if 'http://' in a['href']:
+                    articleURL = a['href']
+                else:
+                    articleURL = 'http://czj.yantai.gov.cn/' + a['href']
+                flag = 0
+                count += 1
+                # 如果是最新的网页，则更新crawlerCollection
+                index = titleList.index(table)
+                if pageNum == 1 and index == 0:  # 第一页的第一个网址
+                    if crawler.find({'url': siteURL}).count() > 0:  # 如果原来爬过这个siteURL，则更新last_updated字段
+                        last = crawler.find_one({'url': siteURL})['last_updated']
+                        if key in last:
+                            logger.info('更新last_updated for 关键词： ' + key)
+                        else:
+                            logger.info('首次插入last_updated for 关键词： ' + key)
+                        last[key] = articleURL
+                        crawler.update_one({'url': siteURL}, {'$set': {'last_updated': last}})
+                    else:  # 否则向crawlerCollection插入新的数据
+                        last = {key: articleURL}
+                        crawler.insert_one({'url': siteURL, 'last_updated': last})
+                        logger.info('首次插入last_updated for 关键词： ' + key)
+                # 如果到达上次爬取的网址
+                if articleURL == last_updated_url:
+                    quitflag = 3
+                    logger.info('到达上次爬取的进度')
+                    break
+                while flag < 3:
+                    try:
+                        article = requests.get(articleURL, headers=headers)
+                        article.encoding = article.apparent_encoding
+                        articleSoup = BeautifulSoup(article.text, 'lxml')
+                        flag = 3
+
+                        # 保存网页源码
+                        htmlSource = article.text
+
+                        # html的URL地址
+                        htmlURL = articleURL
+
+                        # 保存文章标题信息
+                        articleTitle = a.text.replace(' ', '').replace('\r', '').replace('\t', '').replace('\n', '')
+
+                        # 保存文章发布时间
+                        publishTime = ''
+                        timeNode = table.find('span', class_="jsearch-result-date")
+                        if timeNode:
+                            if re.search('(\d+年\d+月\d+)', timeNode.text):
+                                publishTime = re.search('(\d+年\d+月\d+)', timeNode.text)[0].replace('年', '').replace('月', '')
+
+                        # 保存文章位置
+                        articleLocation = ''
+
+                        # 保存文章正文
+                        articleText = ''
+                        if articleSoup.find('div', id="Content"):
+                            articleText = articleSoup.find('div', id="Content").text
+
+                        # 判断标题或正文是否含有关键词
+                        matched_keywords_list = []
+                        for each_keyword in config.keywords_list:
+                            if each_keyword in articleTitle or each_keyword in articleText:
+                                matched_keywords_list.append(each_keyword)
+                        if matched_keywords_list.__len__() > 0:
+                            if collection.find({'url': htmlURL}).count() == 0:
+                                item = {
+                                    'url': htmlURL,
+                                    'title': articleTitle,
+                                    'date': publishTime,
+                                    'site': '国家、省、市、区、县财政部门网站-山东省烟台市财政局',
+                                    'keyword': matched_keywords_list,
+                                    'tag_text': articleLocation,
+                                    'content': articleText,
+                                    'html': htmlSource
+                                }
+                                logger.info('#insert_new_article: ' + articleTitle)
+                                result = collection.insert_one(item)
+                                logger.info(result.inserted_id)
+                            else:
+                                logger.info('#article already exists:' + articleTitle)
+                        else:
+                            logger.info('#no keyword matched: ' + articleTitle)
+                    except (ReadTimeout, ConnectionError, Exception) as e:
+                        logger.error(e)
+                        flag += 1
+                        logger.info('重新请求网页中...')
+                        sleep(10 + 20 * flag)
+                        if flag == 3:
+                            logger.info('重新请求失败')
+                            logger.info('Sleeping...')
+            logger.info('山东省烟台市财政局-' + key + '-pageNum: ' + str(pageNum))
+            if quitflag == 3 or count >= totalResults:
+                break
+            pageNum += 1
+            flag = 0
+            while flag < 3:
+                try:
+                    requestURL = baseURL + str(pageNum) + '&tpl=2&category=&q=' + key + '&pos=&od=&date=&date='
+                    r = requests.get(requestURL, headers=headers)
+                    r.encoding = r.apparent_encoding
+                    basesoup = BeautifulSoup(r.text, 'lxml')
+                    titleList = basesoup.find('div', id="jsearch-result-items",
+                                              class_="ui-search-result-items").find_all('div',
+                                                                                        class_="jsearch-result-box")
+                    flag = 3
+                except (ReadTimeout, ConnectionError, Exception) as e:
+                    logger.error(e)
+                    flag += 1
+                    if flag == 3:
+                        logger.info('Sleeping...')
+                        sleep(60 * 10)
+                        flag = 0
+                    logger.info('重新请求网页中...')
+                    sleep(10 + 20 * flag)
+    logger.info("finish")
+    return
+
+#117.山东省潍坊市财政局
+def SDWeifangCZJ():
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
+    baseURL = 'http://61.133.99.71:8080/was5/web/search?page='
+    siteURL = 'http://czj.weifang.gov.cn/'
+    for key in config.keywords_list:
+        quitflag = 0  # 到达之前爬过的网址时的退出标记
+        last_updated_url = ''  # 记录上次爬过的网站网址
+        if crawler.find({'url': siteURL}).count() > 0:
+            last = crawler.find_one({'url': siteURL})['last_updated']
+            if key in last:
+                last_updated_url = last[key]
+        pageNum = 1
+        flag = 0
+        count = 0
+        logger.info('山东省潍坊市财政局' + '关键词：' + key)
+        while flag < 3:
+            try:
+                requestURL = baseURL + str(pageNum) + '&channelid=268923&searchword=' + key + '&keyword=' + key + '&perpage=10&outlinepage=10&andsen=&total=&orsen=&exclude=&searchscope=&timescope=&timescopecolumn=&orderby=RELEVANCE'
+                r = requests.get(requestURL, headers=headers)
+                r.encoding = r.apparent_encoding
+                basesoup = BeautifulSoup(r.text, 'lxml')
+                total = basesoup.find('div', style="float: right; margin-bottom: 15px;color:#f00;")
+                if total:
+                    if re.search('(\d+)', total.text):
+                        totalResults = int(re.search('(\d+)', total.text)[0])
+                else:
+                    titleList = []
+                    break
+                titleNode = basesoup.find('td', class_='searchresult')
+                titleList = titleNode.find_all('td', style=" font-size:14px", bgcolor="#ffffff", align="left")
+                flag = 3
+            except (ReadTimeout, ConnectionError, Exception) as e:
+                logger.error(e)
+                flag += 1
+                if flag == 3:
+                    logger.info('Sleeping...')
+                    sleep(60 * 10)
+                    flag = 0
+                logger.info('重新请求网页中...')
+                sleep(10 + 20 * flag)
+        while titleList:
+            for table in titleList:
+                a = table.find('a')
+                if 'http://' in a['href']:
+                    articleURL = a['href']
+                flag = 0
+                count += 1
+                # 如果是最新的网页，则更新crawlerCollection
+                index = titleList.index(table)
+                if pageNum == 1 and index == 0:  # 第一页的第一个网址
+                    if crawler.find({'url': siteURL}).count() > 0:  # 如果原来爬过这个siteURL，则更新last_updated字段
+                        last = crawler.find_one({'url': siteURL})['last_updated']
+                        if key in last:
+                            logger.info('更新last_updated for 关键词： ' + key)
+                        else:
+                            logger.info('首次插入last_updated for 关键词： ' + key)
+                        last[key] = articleURL
+                        crawler.update_one({'url': siteURL}, {'$set': {'last_updated': last}})
+                    else:  # 否则向crawlerCollection插入新的数据
+                        last = {key: articleURL}
+                        crawler.insert_one({'url': siteURL, 'last_updated': last})
+                        logger.info('首次插入last_updated for 关键词： ' + key)
+                # 如果到达上次爬取的网址
+                if articleURL == last_updated_url:
+                    quitflag = 3
+                    logger.info('到达上次爬取的进度')
+                    break
+                while flag < 3:
+                    try:
+                        article = requests.get(articleURL, headers=headers)
+                        article.encoding = article.apparent_encoding
+                        articleSoup = BeautifulSoup(article.text, 'lxml')
+                        flag = 3
+
+                        # 保存网页源码
+                        htmlSource = article.text
+
+                        # html的URL地址
+                        htmlURL = articleURL
+
+                        # 保存文章标题信息
+                        articleTitle = a.text
+
+                        # 保存文章发布时间
+                        publishTime = ''
+                        timeNode = table
+                        if timeNode:
+                            if re.search('(\d+.\d+.\d+)', timeNode.text):
+                                publishTime = re.search('(\d+.\d+.\d+)', timeNode.text)[0].replace('.', '')
+
+                        # 保存文章位置
+                        articleLocation = ''
+                        if articleSoup.find('div', class_="location"):
+                            articleLocation = articleSoup.find('div', class_="location").text.replace(' ', '').replace('\n', '')
+
+                        # 保存文章正文
+                        articleText = ''
+                        if articleSoup.find('div', class_="content_c"):
+                            articleText = articleSoup.find('div', class_="content_c").text
+
+                        # 判断标题或正文是否含有关键词
+                        matched_keywords_list = []
+                        for each_keyword in config.keywords_list:
+                            if each_keyword in articleTitle or each_keyword in articleText:
+                                matched_keywords_list.append(each_keyword)
+                        if matched_keywords_list.__len__() > 0:
+                            if collection.find({'url': htmlURL}).count() == 0:
+                                item = {
+                                    'url': htmlURL,
+                                    'title': articleTitle,
+                                    'date': publishTime,
+                                    'site': '国家、省、市、区、县财政部门网站-山东省潍坊市财政局',
+                                    'keyword': matched_keywords_list,
+                                    'tag_text': articleLocation,
+                                    'content': articleText,
+                                    'html': htmlSource
+                                }
+                                logger.info('#insert_new_article: ' + articleTitle)
+                                result = collection.insert_one(item)
+                                logger.info(result.inserted_id)
+                            else:
+                                logger.info('#article already exists:' + articleTitle)
+                        else:
+                            logger.info('#no keyword matched: ' + articleTitle)
+                    except (ReadTimeout, ConnectionError, Exception) as e:
+                        logger.error(e)
+                        flag += 1
+                        logger.info('重新请求网页中...')
+                        sleep(10 + 20 * flag)
+                        if flag == 3:
+                            logger.info('重新请求失败')
+                            logger.info('Sleeping...')
+            logger.info('山东省潍坊市财政局-' + key + '-pageNum: ' + str(pageNum))
+            if quitflag == 3 or count >= totalResults:
+                break
+            pageNum += 1
+            flag = 0
+            while flag < 3:
+                try:
+                    requestURL = baseURL + str(
+                        pageNum) + '&channelid=268923&searchword=' + key + '&keyword=' + key + '&perpage=10&outlinepage=10&andsen=&total=&orsen=&exclude=&searchscope=&timescope=&timescopecolumn=&orderby=RELEVANCE'
+                    r = requests.get(requestURL, headers=headers)
+                    r.encoding = r.apparent_encoding
+                    basesoup = BeautifulSoup(r.text, 'lxml')
+                    titleNode = basesoup.find('td', class_='searchresult')
+                    titleList = titleNode.find_all('td', style=" font-size:14px", bgcolor="#ffffff", align="left")
+                    flag = 3
+                except (ReadTimeout, ConnectionError, Exception) as e:
+                    logger.error(e)
+                    flag += 1
+                    if flag == 3:
+                        logger.info('Sleeping...')
+                        sleep(60 * 10)
+                        flag = 0
+                    logger.info('重新请求网页中...')
+                    sleep(10 + 20 * flag)
+    logger.info("finish")
+    return
+
+#118.山东省济宁市财政局
+def SDJiningCZJ():
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
+    baseURL = 'http://www.jining.gov.cn/jrobot/search.do?webid=29&pg=12&p='
+    siteURL = 'http://jicz.jining.gov.cn/'
+    for key in config.keywords_list:
+        quitflag = 0  # 到达之前爬过的网址时的退出标记
+        last_updated_url = ''  # 记录上次爬过的网站网址
+        if crawler.find({'url': siteURL}).count() > 0:
+            last = crawler.find_one({'url': siteURL})['last_updated']
+            if key in last:
+                last_updated_url = last[key]
+        pageNum = 1
+        flag = 0
+        count = 0
+        logger.info('山东省济宁市财政局' + '关键词：' + key)
+        while flag < 3:
+            try:
+                requestURL = baseURL + str(pageNum) + '&tpl=&category=&q=' + key + '&pos=&od=0&date=&date='
+                r = requests.get(requestURL, headers=headers)
+                r.encoding = r.apparent_encoding
+                basesoup = BeautifulSoup(r.text, 'lxml')
+                total = basesoup.find('div', id="jsearch-info-box")['data-total']
+                if total != '':
+                    totalResults = int(total)
+                else:
+                    titleList = []
+                    break
+                titleNode = basesoup.find('div', id="jsearch-result-items", class_="ui-search-result-items")
+                titleList = titleNode.find_all('div', class_="jsearch-result-box")
+                flag = 3
+            except (ReadTimeout, ConnectionError, Exception) as e:
+                logger.error(e)
+                flag += 1
+                if flag == 3:
+                    logger.info('Sleeping...')
+                    sleep(60 * 10)
+                    flag = 0
+                logger.info('重新请求网页中...')
+                sleep(10 + 20 * flag)
+        while titleList:
+            for table in titleList:
+                a = table.find('a')
+                articleURL = table.find('div', class_='jsearch-result-url').find('a').text
+                flag = 0
+                count += 1
+                # 如果是最新的网页，则更新crawlerCollection
+                index = titleList.index(table)
+                if pageNum == 1 and index == 0:  # 第一页的第一个网址
+                    if crawler.find({'url': siteURL}).count() > 0:  # 如果原来爬过这个siteURL，则更新last_updated字段
+                        last = crawler.find_one({'url': siteURL})['last_updated']
+                        if key in last:
+                            logger.info('更新last_updated for 关键词： ' + key)
+                        else:
+                            logger.info('首次插入last_updated for 关键词： ' + key)
+                        last[key] = articleURL
+                        crawler.update_one({'url': siteURL}, {'$set': {'last_updated': last}})
+                    else:  # 否则向crawlerCollection插入新的数据
+                        last = {key: articleURL}
+                        crawler.insert_one({'url': siteURL, 'last_updated': last})
+                        logger.info('首次插入last_updated for 关键词： ' + key)
+                # 如果到达上次爬取的网址
+                if articleURL == last_updated_url:
+                    quitflag = 3
+                    logger.info('到达上次爬取的进度')
+                    break
+                while flag < 3:
+                    try:
+                        article = requests.get(articleURL, headers=headers)
+                        article.encoding = article.apparent_encoding
+                        articleSoup = BeautifulSoup(article.text, 'lxml')
+                        flag = 3
+
+                        # 保存网页源码
+                        htmlSource = article.text
+
+                        # html的URL地址
+                        htmlURL = articleURL
+
+                        # 保存文章标题信息
+                        articleTitle = a.text
+
+                        # 保存文章发布时间
+                        publishTime = ''
+                        timeNode = table.find('span', class_="jsearch-result-date")
+                        if timeNode:
+                            if re.search('(\d+年\d+月\d+)', timeNode.text):
+                                publishTime = re.search('(\d+年\d+月\d+)', timeNode.text)[0].replace('年', '').replace('月', '')
+
+                        # 保存文章位置
+                        articleLocation = ''
+                        if articleSoup.find('table', border="0", cellspacing="0", cellpadding="0", style="background-color:transparent"):
+                            articleLocation = articleSoup.find('table', border="0", cellspacing="0", cellpadding="0", style="background-color:transparent").text
+
+                        # 保存文章正文
+                        articleText = ''
+                        if articleSoup.find('div', id="zoom"):
+                            articleText = articleSoup.find('div', id="zoom").text
+
+                        # 判断标题或正文是否含有关键词
+                        matched_keywords_list = []
+                        for each_keyword in config.keywords_list:
+                            if each_keyword in articleTitle or each_keyword in articleText:
+                                matched_keywords_list.append(each_keyword)
+                        if matched_keywords_list.__len__() > 0:
+                            if collection.find({'url': htmlURL}).count() == 0:
+                                item = {
+                                    'url': htmlURL,
+                                    'title': articleTitle,
+                                    'date': publishTime,
+                                    'site': '国家、省、市、区、县财政部门网站-山东省济宁市财政局',
+                                    'keyword': matched_keywords_list,
+                                    'tag_text': articleLocation,
+                                    'content': articleText,
+                                    'html': htmlSource
+                                }
+                                logger.info('#insert_new_article: ' + articleTitle)
+                                result = collection.insert_one(item)
+                                logger.info(result.inserted_id)
+                            else:
+                                logger.info('#article already exists:' + articleTitle)
+                        else:
+                            logger.info('#no keyword matched: ' + articleTitle)
+                    except (ReadTimeout, ConnectionError, Exception) as e:
+                        logger.error(e)
+                        flag += 1
+                        logger.info('重新请求网页中...')
+                        sleep(10 + 20 * flag)
+                        if flag == 3:
+                            logger.info('重新请求失败')
+                            logger.info('Sleeping...')
+            logger.info('山东省济宁市财政局-' + key + '-pageNum: ' + str(pageNum))
+            if quitflag == 3 or count >= totalResults:
+                break
+            pageNum += 1
+            flag = 0
+            while flag < 3:
+                try:
+                    requestURL = baseURL + str(pageNum) + '&tpl=&category=&q=' + key + '&pos=&od=0&date=&date='
+                    r = requests.get(requestURL, headers=headers)
+                    r.encoding = r.apparent_encoding
+                    basesoup = BeautifulSoup(r.text, 'lxml')
+                    titleNode = basesoup.find('div', id="jsearch-result-items", class_="ui-search-result-items")
+                    titleList = titleNode.find_all('div', class_="jsearch-result-box")
+                    flag = 3
+                except (ReadTimeout, ConnectionError, Exception) as e:
+                    logger.error(e)
+                    flag += 1
+                    if flag == 3:
+                        logger.info('Sleeping...')
+                        sleep(60 * 10)
+                        flag = 0
+                    logger.info('重新请求网页中...')
+                    sleep(10 + 20 * flag)
+    logger.info("finish")
+    return
+
 if __name__ == '__main__':
     # #1.河北省石家庄市财政局
     # HBShijiazhuangCaizhengju()
@@ -18460,10 +19558,24 @@ if __name__ == '__main__':
     # GDZhanjiangCZJ()
     # #109.广东省茂名市财政局
     # GDMaomingCZJ()
-    #110.广东省潮州市财政局
-    GDChaozhouCZJ()
+    # #110.广东省潮州市财政局
+    # GDChaozhouCZJ()
     # #111.广东省揭阳市财政局
     # GDJieyangCZJ()
+    # #112.山东省青岛市财政局
+    # SDQingdaoCZJ()
+    # #113.山东省东营市财政局
+    # SDDongyingCZJ()
+    # #114.山东省日照市财政局
+    # SDRizhaoCZJ()
+    # #115.山东省枣庄市财政局
+    # SDZaozhuangCZJ()
+    # #116.山东省烟台市财政局
+    # SDYantaiCZJ()
+    # #117.山东省潍坊市财政局
+    # SDWeifangCZJ()
+    #118.山东省济宁市财政局
+    SDJiningCZJ()
 
 
 

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c804d7ca-0bb3-409c-a4f8-0743a011eb52" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web_crawler_wl/Caizhengju.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_crawler_wl/Caizhengju.py" afterDir="false" />
     </list>
@@ -15,7 +16,7 @@
     <session id="-1617536915">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="149" />
+          <entry key="project.closed" value="150" />
           <entry key="project.open.time.0" value="9" />
           <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.10" value="9" />
@@ -28,7 +29,8 @@
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.21" value="1" />
-          <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.29" value="2" />
+          <entry key="project.open.time.35" value="1" />
           <entry key="project.open.time.4" value="4" />
           <entry key="project.open.time.45" value="1" />
           <entry key="project.open.time.5" value="20" />
@@ -36,7 +38,7 @@
           <entry key="project.open.time.7" value="17" />
           <entry key="project.open.time.8" value="21" />
           <entry key="project.open.time.9" value="32" />
-          <entry key="project.opened" value="151" />
+          <entry key="project.opened" value="153" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -53,13 +55,13 @@
         <counts>
           <entry key="Python Console" value="51" />
           <entry key="dummy" value="7" />
-          <entry key="py" value="119706" />
+          <entry key="py" value="121959" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="119756" />
+          <entry key="Python" value="122009" />
           <entry key="RegExp" value="1" />
         </counts>
       </usages-collector>
@@ -73,13 +75,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="17976" column="53" selection-start-line="17976" selection-start-column="53" selection-end-line="17976" selection-end-column="53" />
+            <state relative-caret-position="-1762">
+              <caret line="19132" column="34" lean-forward="true" selection-start-line="19132" selection-start-column="34" selection-end-line="19132" selection-end-column="34" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1548761180451" expanded="true" signature="867722:898142" ph="..." />
-                <marker date="1548761180451" expanded="true" signature="883182:890784" ph="..." />
-                <marker date="1548761180451" expanded="true" signature="890818:898142" ph="..." />
+                <marker date="1550147616715" expanded="true" signature="867734:951819" ph="..." />
+                <marker date="1550147616715" expanded="true" signature="883194:890796" ph="..." />
+                <marker date="1550147616715" expanded="true" signature="890830:951819" ph="..." />
+                <marker date="1550147616715" expanded="true" signature="906236:951819" ph="..." />
+                <marker date="1550147616715" expanded="true" signature="943995:951819" ph="..." />
               </folding>
             </state>
           </provider>
@@ -109,8 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+            <state relative-caret-position="470">
+              <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -139,8 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
-              <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
+            <state relative-caret-position="648">
+              <caret line="56" column="3" selection-start-line="56" selection-start-column="3" selection-end-line="56" selection-end-column="3" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
                 <marker date="1548675555973" expanded="true" signature="1520:2736" ph="..." />
@@ -208,6 +212,8 @@
       <find>viewstate</find>
       <find>del</find>
       <find>get</find>
+      <find>match</find>
+      <find>match.group</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -246,7 +252,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -263,6 +268,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -397,8 +403,8 @@
       <window_info id="Favorites" order="2" sideWeight="0.50063854" side_tool="true" weight="0.12527353" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.21455939" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.69967175" weight="0.41666666" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8987965" weight="0.29726368" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.69967175" visible="true" weight="0.4738806" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8987965" weight="0.24502487" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3299363" />
@@ -463,27 +469,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>8461</line>
+          <line>8462</line>
           <option name="timeStamp" value="165" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>5701</line>
+          <line>5702</line>
           <option name="timeStamp" value="168" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>5630</line>
+          <line>5631</line>
           <option name="timeStamp" value="169" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>5854</line>
+          <line>5855</line>
           <option name="timeStamp" value="171" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>5958</line>
+          <line>5959</line>
           <option name="timeStamp" value="172" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -493,7 +499,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>6167</line>
+          <line>6168</line>
           <option name="timeStamp" value="177" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -503,47 +509,47 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>6365</line>
+          <line>6366</line>
           <option name="timeStamp" value="179" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>6520</line>
+          <line>6521</line>
           <option name="timeStamp" value="183" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>6670</line>
+          <line>6671</line>
           <option name="timeStamp" value="184" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>6902</line>
+          <line>6903</line>
           <option name="timeStamp" value="185" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>7377</line>
+          <line>7378</line>
           <option name="timeStamp" value="188" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>7757</line>
+          <line>7758</line>
           <option name="timeStamp" value="192" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>7840</line>
+          <line>7841</line>
           <option name="timeStamp" value="197" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>8004</line>
+          <line>8005</line>
           <option name="timeStamp" value="201" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>8167</line>
+          <line>8168</line>
           <option name="timeStamp" value="203" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -553,242 +559,242 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>7554</line>
+          <line>7555</line>
           <option name="timeStamp" value="211" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>7591</line>
+          <line>7592</line>
           <option name="timeStamp" value="212" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>7708</line>
+          <line>7709</line>
           <option name="timeStamp" value="215" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>7538</line>
+          <line>7539</line>
           <option name="timeStamp" value="216" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>8400</line>
+          <line>8401</line>
           <option name="timeStamp" value="219" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>8490</line>
+          <line>8491</line>
           <option name="timeStamp" value="221" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>8563</line>
+          <line>8564</line>
           <option name="timeStamp" value="222" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>8724</line>
+          <line>8725</line>
           <option name="timeStamp" value="225" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>8869</line>
+          <line>8870</line>
           <option name="timeStamp" value="229" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>9203</line>
+          <line>9204</line>
           <option name="timeStamp" value="232" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>9331</line>
+          <line>9332</line>
           <option name="timeStamp" value="233" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>9284</line>
+          <line>9285</line>
           <option name="timeStamp" value="234" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>9565</line>
+          <line>9566</line>
           <option name="timeStamp" value="246" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>9569</line>
+          <line>9570</line>
           <option name="timeStamp" value="247" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>9696</line>
+          <line>9697</line>
           <option name="timeStamp" value="255" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>9607</line>
+          <line>9608</line>
           <option name="timeStamp" value="256" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>9865</line>
+          <line>9866</line>
           <option name="timeStamp" value="258" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>10095</line>
+          <line>10096</line>
           <option name="timeStamp" value="261" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>10336</line>
+          <line>10337</line>
           <option name="timeStamp" value="273" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>10751</line>
+          <line>10752</line>
           <option name="timeStamp" value="291" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>10905</line>
+          <line>10906</line>
           <option name="timeStamp" value="295" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>10896</line>
+          <line>10897</line>
           <option name="timeStamp" value="297" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>10893</line>
+          <line>10894</line>
           <option name="timeStamp" value="299" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>11151</line>
+          <line>11152</line>
           <option name="timeStamp" value="303" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>11300</line>
+          <line>11301</line>
           <option name="timeStamp" value="304" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>11452</line>
+          <line>11453</line>
           <option name="timeStamp" value="306" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>11378</line>
+          <line>11379</line>
           <option name="timeStamp" value="308" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>11600</line>
+          <line>11601</line>
           <option name="timeStamp" value="311" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>11532</line>
+          <line>11533</line>
           <option name="timeStamp" value="313" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>11766</line>
+          <line>11767</line>
           <option name="timeStamp" value="316" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>12240</line>
+          <line>12241</line>
           <option name="timeStamp" value="324" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>12400</line>
+          <line>12401</line>
           <option name="timeStamp" value="326" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>12612</line>
+          <line>12613</line>
           <option name="timeStamp" value="344" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>12753</line>
+          <line>12754</line>
           <option name="timeStamp" value="359" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>12919</line>
+          <line>12920</line>
           <option name="timeStamp" value="361" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>13078</line>
+          <line>13079</line>
           <option name="timeStamp" value="366" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>13218</line>
+          <line>13219</line>
           <option name="timeStamp" value="373" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>13405</line>
+          <line>13406</line>
           <option name="timeStamp" value="381" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>13573</line>
+          <line>13574</line>
           <option name="timeStamp" value="389" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>13486</line>
+          <line>13487</line>
           <option name="timeStamp" value="390" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>13886</line>
+          <line>13887</line>
           <option name="timeStamp" value="396" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>14120</line>
+          <line>14121</line>
           <option name="timeStamp" value="404" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>14360</line>
+          <line>14361</line>
           <option name="timeStamp" value="406" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>14845</line>
+          <line>14846</line>
           <option name="timeStamp" value="417" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>14400</line>
+          <line>14401</line>
           <option name="timeStamp" value="441" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>14534</line>
+          <line>14535</line>
           <option name="timeStamp" value="445" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>15004</line>
+          <line>15005</line>
           <option name="timeStamp" value="449" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>15514</line>
+          <line>15515</line>
           <option name="timeStamp" value="481" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -798,27 +804,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>15713</line>
+          <line>15714</line>
           <option name="timeStamp" value="487" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>15709</line>
+          <line>15710</line>
           <option name="timeStamp" value="489" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>16045</line>
+          <line>16046</line>
           <option name="timeStamp" value="497" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>16165</line>
+          <line>16166</line>
           <option name="timeStamp" value="502" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py</url>
-          <line>16661</line>
+          <line>16662</line>
           <option name="timeStamp" value="522" />
         </line-breakpoint>
       </breakpoints>
@@ -1131,8 +1137,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test_2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
+        <state relative-caret-position="648">
+          <caret line="56" column="3" selection-start-line="56" selection-start-column="3" selection-end-line="56" selection-end-column="3" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
             <marker date="1548675555973" expanded="true" signature="1520:2736" ph="..." />
@@ -1162,20 +1168,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+        <state relative-caret-position="470">
+          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web_crawler_wl/Caizhengju.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="17976" column="53" selection-start-line="17976" selection-start-column="53" selection-end-line="17976" selection-end-column="53" />
+        <state relative-caret-position="-1762">
+          <caret line="19132" column="34" lean-forward="true" selection-start-line="19132" selection-start-column="34" selection-end-line="19132" selection-end-column="34" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1548761180451" expanded="true" signature="867722:898142" ph="..." />
-            <marker date="1548761180451" expanded="true" signature="883182:890784" ph="..." />
-            <marker date="1548761180451" expanded="true" signature="890818:898142" ph="..." />
+            <marker date="1550147616715" expanded="true" signature="867734:951819" ph="..." />
+            <marker date="1550147616715" expanded="true" signature="883194:890796" ph="..." />
+            <marker date="1550147616715" expanded="true" signature="890830:951819" ph="..." />
+            <marker date="1550147616715" expanded="true" signature="906236:951819" ph="..." />
+            <marker date="1550147616715" expanded="true" signature="943995:951819" ph="..." />
           </folding>
         </state>
       </provider>
